@@ -1,0 +1,98 @@
+Terry - Carlos
+
+Needs
+Space game (Elon Musk - Mars)
+Goal 
+	Gain resources
+	Explore the galaxy
+	Tell a compelling story with an ending
+	
+Requirements
+	Start on Earth (DONE)
+	Min 5 planets to travel to including Proxima Centauri & min 3 random planets (DONE)
+	Single-Player (DONE)
+	Text user interface (DONE)
+	Resources : trade, currency, ship, fuel (DONE)
+	quits and generates new random game (DONE)
+	npc trading (DONE)
+	warp equation traveling (KINDA)
+		given (W)arp > 0 < 10
+		Speed in multiples of c (light speed) is
+			W^10/3 + (10-W)^-11/3
+	
+Endings
+	Good (DONE)	
+	Bad (options) (DONE)	
+	Age > 65, soylent green (DONE)
+	Poor - wealth <0, poor ending (DONE)
+	Fuel <=0, fuel ending (DONE)
+Warp Equation provided by customer (DONE)
+
+Stretch goals
+	Z-player, turn based
+	graphical/components audio
+	escape the age limit
+	ship upgrades (KINDA)
+	save/restore
+	story-driven trading (DONE)
+	
+
+
+git repository 
+	directories
+		implementation-plan/
+			basic design
+			taking design and implementing to requirements
+		requirements/
+			our requirements
+			project's requirements
+		design/
+			objects
+			where will you store the story
+			
+			
+--------------------------
+Implementation
+One branch for entire respository - Working at same time and communicating changes before pull/push
+Create story to know which objects to create
+Create objects within game
+
+
+Beginning script to create name
+Store name in memory
+
+Option to give up or quit
+
+
+Random Elon Musk interactions
+
+Start on Earth - Will have a base on Earth for upgrades 
+	Start with a default ship/tools from base and x amount of currency
+	Ability to choose first planet at start
+		Choose planet to travel to (1-8)
+			Planet 1, 2, 3, 4, 5, 6, 7, 8 (Fictional planets)
+			
+	
+Each planet will have 1 NPC trader
+	Options on planet
+		collect resources
+			food/water > able to buy for currency
+			natural fuel > able to buy for currency
+			minerals/ores > only able to sell to NPC
+		interact with NPC
+			trade resources
+			upgrades - accepts resources/currency
+		option to leave
+			
+
+End game
+	collect energy from proxima centauri to restore Earth (requires 4 items in order to collect energy)
+	Suit, Energy Collection device, Warp Speed Upgrade, Advanced Ship
+	
+	Good Endings
+		collected resources, items required to reach proxima centauri, collected energy, saved Earth
+
+	Bad
+		Age - take too long > 65 yrs to save Earth
+		Poor - Ran out of resources/currency
+		Fuel - didn't farm fuel, ran out of fuel during travel, can no longer travel
