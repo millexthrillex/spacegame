@@ -1,0 +1,52 @@
+Terry - Carlos
+
+Needs
+Space game (Elon Musk - Mars)
+Goal 
+	Gain resources
+	Explore the galaxy
+	Tell a compelling story with an ending
+	
+Requirements
+	Start on Earth
+	Min 5 planets to travel to including Proxima Centauri & min 3 random planets
+	Single-Player
+	Text user interface
+	Resources : trade, currency, ship, fuel
+	quits and generates new random game
+	npc trading
+	warp equation traveling 
+		given (W)arp > 0 < 10
+		Speed in multiples of c (light speed) is
+			W^10/3 + (10-W)^-11/3
+	
+Endings
+	Good
+	Bad (options)
+	Age > 65, soylent green
+	Poor - wealth <0, poor ending
+	Fuel <=0, fuel ending
+Warp Equation provided by customer
+
+Stretch goals
+	Z-player, turn based
+	graphical/components audio
+	escape the age limit
+	ship upgrades
+	save/restore
+	story-driven trading
+	
+
+
+git repository 
+	directories
+		implementation-plan/
+			basic design
+			taking design and implementing to requirements
+		requirements/
+			our requirements
+			project's requirements
+		design/
+			objects
+			where will you store the story
+			
