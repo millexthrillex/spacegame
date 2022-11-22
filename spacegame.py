@@ -3,14 +3,24 @@
 
 
 #Story dialogue begins
-dialogue = "THE WHOLE SCRIPT"
+
+story_list = []
+
+def open_list():
+    global story_list
+    try:
+        with open('story.txt', mode = 'r') as f:
+            b = f.readlines()
+            story_list = [x.replace('\n', '') for x in b]
+    except FileNotFoundError:
+        open(story.txt, w)
 
 
-introduction = input(f" {dialogue} This is the beginning of the story")
-
-
-
-
+def view_story():
+    open_list()
+    for i in range(len(story_list)):
+        user_input = input((story_list[i]))
+    
 
 
 
@@ -18,16 +28,21 @@ introduction = input(f" {dialogue} This is the beginning of the story")
 #
 #Objects
 #
-#Class Planet
-#	Planet 1
-#	Planet 2
-#	Planet 3
-#	Planet 4
-#	Planet 5
-#	Planet 6
-#	Planet 7
-#	Planet 8
-#	
+class Planet:
+    def _init__(self):
+        self.planet = player.location
+
+    def planet(self, resources):
+        self.recources = [food, minerals]
+#	Planet1
+#	Planet2
+#	Planet3
+#	Planet4
+#	Planet5
+#	Planet6
+#	Planet7
+#	Planet8
+	
 #Class Resources
 #	Food
 #	Water
@@ -51,8 +66,17 @@ introduction = input(f" {dialogue} This is the beginning of the story")
 #	Energy Collection device
 #	Warp Speed Upgrade 
 #	Advanced Ship
-#	
-#Class Interaction
+#
+class Explorer:
+    def __init__(self):
+        self.location = ['Earth', 'Mars']
+        self.name = input("What is your name? ")
+    
+    def travel(self, location):
+        self.location = ['Earth', 'Mars']
+
+    def menu(self, action):
+        self.action = ['Collect resources', 'Trade with NPC', 'Leave Planet']
 #	Trading Interaction
 #	Collecting Interaction
 #	Travelling Interaction
@@ -86,7 +110,18 @@ introduction = input(f" {dialogue} This is the beginning of the story")
 #	Advanced Ship
 
 
+#        travel = input("where would you like to travel? \nPlanet1    Planet2\n")
 
+if __name__ == "__main__":
+    view_story()
 
+    player = Explorer()
 
-
+    print(f'Explorer is on planet {player.location[0]}')
+    planet_traveled_to = player.travel([int(input("where would you like to travel? \n1)Jupiter    2)Mars\n"))])
+    if planet_traveled_to == player.travel([1]):
+        print(f'Explorer is on planet {player.location[1]}')
+    action = player.menu(int(input("What would you like to do here? \n1)Collect resources    2)Trade with NPC    3)Leave Planet\n")))
+    if action == 1:
+        resource = 
+    
