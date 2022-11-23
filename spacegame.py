@@ -51,56 +51,6 @@ import os
 #   Energy Collection device
 #   Warp Speed Upgrade 
 #   Advanced Ship
-story_list = []
-
-def open_list():
-    global story_list
-    try:
-        with open('story.txt', mode = 'r') as f:
-            b = f.readlines()
-            story_list = [x.replace('\n', '') for x in b]
-    except FileNotFoundError:
-        open(story.txt, w)
-
-
-def view_story():
-    open_list()
-    for i in range(len(story_list)):
-        user_input = input((story_list[i]))
-    
-
-
-
-#user_name = input("What is your name?")
-#
-#Objects
-#
-class Planet:
-    def __init__(self, name):
-        self.name = name
-
-    def planet(self, resources):
-        self.recources = [food, minerals]
-
-class Player:
-    def __init__(self,location):
-        self.location = location
-        self.name = 'name'
-    
-    def travel(self, location):
-        self.location = location
-def clr():
-    clr = os.system('clear')
-    return clr
-
-def travel_menu():
-        print("Where would you like to travel?")
-        for i in range(len(planet_list)):
-            print(f'{i + 1}) {planet_list[i].name}  ')
-            
-        userInput = int(input())
-        player.travel(planet_list[userInput - 1])
-
 def start():
     player.name = input('Enter your name\n')
     
@@ -133,6 +83,73 @@ def start():
         else:
             clr()
             print("I do not understand you.")
+
+story_list = []
+
+def open_list():
+    global story_list
+    try:
+        with open('story.txt', mode = 'r') as f:
+            b = f.readlines()
+            story_list = [x.replace('\n', '') for x in b]
+    except FileNotFoundError:
+        open(story.txt, w)
+
+
+def view_story():
+    open_list()
+    for i in range(len(story_list)):
+        user_input = input((story_list[i]))
+    
+def clr():
+    clr = os.system('clear')
+    return clr
+
+def travel_menu():
+    clr()
+    print(f'Explorer is on planet {player.location.name}')
+    print("Where would you like to travel?")
+    for i in range(len(planet_list)):
+        print(f'{i + 1}) {planet_list[i].name}  ')
+            
+    userInput = int(input())
+    player.travel(planet_list[userInput - 1])
+    print(f'Explorer is on planet {player.location.name}')
+    
+
+    
+class Planet:
+    def __init__(self, name):
+        self.name = name
+
+    def planet(self, resources):
+        self.recources = resources()
+
+class Player:
+    def __init__(self,location):
+        self.location = location
+        self.name = 'name'
+        
+    def travel(self, location):
+        self.location = location
+
+     
+
+def gather_resources():
+    clr()
+    c_planet = player.location
+    
+    c_planet.resources = ('food', 'minerals')
+
+    print(f'What would you like to gather from {player.location.name}? ')
+
+    for i in range(len(c_planet.resources)):
+        print(i + 1, c_planet.resources[i])
+
+def menu():
+    clr()
+    print(f'What would you like to in {player.location .name}? ')
+
 #   Trading Interaction
 #   Collecting Interaction
 #   Travelling Interaction
@@ -140,25 +157,27 @@ def start():
 #   Quit Interaction
 #   
 
-#        travel = input("where would you like to travel? \nPlanet1    Planet2\n")
+#   travel = input("where would you like to travel? \nPlanet1    Planet2\n")
 
 
 
 if __name__ == "__main__":
     planet_list = [Planet('Earth'), Planet('Mars')]
-    
+                
     player = Player( planet_list[0])
     
-    start()
+    #c_planet = player.location
     
-    print(f'Explorer is on planet {player.location.name}')
-
+    #c_planet.resources = ('food', 'minerals')
+    
+    #start()
+    
     travel_menu()
 
-    print(f'Explorer is on planet {player.location.name}')
-
+    gather_resources()
+    
     #player.menu(int(input("What would you like to do here? \n1)Collect resources    2)Trade with NPC    3)Leave Planet\n")))
-
+#
     #if player.menu([(input("What would you like to do here? \n1)Collect resources    2)Trade with NPC    3)Leave Planet\n"))]): pass
         
     
