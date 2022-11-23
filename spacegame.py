@@ -1,4 +1,4 @@
-
+import os
 #Beginning script of the game
 
 
@@ -82,13 +82,16 @@ class Planet:
     def planet(self, resources):
         self.recources = [food, minerals]
 
-class Explorer:
-    def __init__(self, location):
+class Player:
+    def __init__(self,location):
         self.location = location
-        #self.name = input("What is your name? ")
+        self.name = 'name'
     
     def travel(self, location):
         self.location = location
+def clr():
+    clr = os.system('clear')
+    return clr
 
 def travel_menu():
         print("Where would you like to travel?")
@@ -97,7 +100,39 @@ def travel_menu():
             
         userInput = int(input())
         player.travel(planet_list[userInput - 1])
+
+def start():
+    player.name = input('Enter your name\n')
     
+    story_1 = "Earth is in trouble. The human civilization has used up all of its resources and will only be able to survive for 65 years. Elon Musk has hired you to help him explore the galaxy and bring back energy from Proxima Centauri." 
+    while True:
+        
+        x = name_confirm = input(f'You entered {player.name}. Confirm? \nType "yes" to confirm, "no" to return \n')  
+        if x == 'yes':
+            clr()
+            break
+        elif x == 'no':
+            clr()
+            return start()
+        else:
+            clr()
+            print("I do not understand you.")
+    
+    print(f'Greetings {player.name}')
+    print(story_1)
+    while True:
+        x = choice = input("Will you help save the Earth? \nType 'yes' or 'no' \n")
+        if choice == 'yes':
+            clr()
+            print("Let's save the Earth")
+            break
+        elif choice == 'no':
+            clr()
+            print("That's too bad.")
+            exit()
+        else:
+            clr()
+            print("I do not understand you.")
 #	Trading Interaction
 #	Collecting Interaction
 #	Travelling Interaction
@@ -110,15 +145,15 @@ def travel_menu():
 
 
 if __name__ == "__main__":
-    view_story()
-
     planet_list = [Planet('Earth'), Planet('Mars')]
     
-    player = Explorer(planet_list[0])
-
+    player = Player( planet_list[0])
+    
+    start()
+    
     print(f'Explorer is on planet {player.location.name}')
 
-    menu()
+    travel_menu()
 
     print(f'Explorer is on planet {player.location.name}')
 
