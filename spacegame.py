@@ -137,8 +137,9 @@ def view_inv():
     while True:
         clr()
         print(f'Inventory:                Explorer\'s age: {int(player.age)}')
-        for i in range(len(player.inventory)):
-            print(f'{player.inventory[i].name} x{player.inventory[i].quantity}')
+        for i in range(len(inventory)):
+            if inventory[i].quantity != 0:
+                print(f'{inventory[i].name} x{inventory[i].quantity}')
         e = input('Enter to return to Menu\n')
         if e == '':
             break
@@ -193,16 +194,17 @@ def gather_resources():
 
     print(f'What would you like to gather from {player.location.name}? ')
 
-    for i in range(len(resources_list)):
-        print(f'{i + 1}) {resources_list[i].name}')
+    for i in range(len(items_list)):
+        print(f'{i + 1}) {items_list[i].name}')
 
     userInput = int(input())
     
-    player.inventory += [resources_list[userInput - 1]]
-    resources_list[userInput - 1].quantity = resources_list[userInput - 1].quantity + random.choice(range(1,10))
+    items_list[userInput - 1].quantity = random.choice(range(1, 10))
+
+    inventory[userInput - 1].quantity += items_list[userInput - 1].quantity
     
     
-    print(f'Explorer has gathered {resources_list[userInput - 1].name} x{resources_list[userInput - 1].quantity}')
+    print(f'Explorer has gathered {inventory[userInput - 1].name} x{items_list[userInput - 1].quantity}')
     player.age = player.age + (1/52)
     
     print('One week has passed')
@@ -226,13 +228,13 @@ if __name__ == "__main__":
     
     items_list = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens')]
 
-    invetory = []
+    inventory = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens')]
 
     npc_inv = ['food', 'minerals', 'water', 'fuel', 'space tokens']
 
     #npc_trade = random.choice(tuple(npc_inv))
 
-    #num = random.choice(range(1, 10))
+    ran_num = random.choice(range(1, 10))
 
     
     #start()
