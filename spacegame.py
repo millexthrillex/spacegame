@@ -117,39 +117,53 @@ def travel_menu():
     player.travel(planet_list[userInput - 1])
     print(f'Explorer is on planet {player.location.name}')
     
-def gather_resources():
+
+    
+def menu():
     clr()
-
-    print(f'What would you like to gather from {player.location.name}? ')
-
-    for i in range(len(resources_list)):
-        print(i + 1, resources_list[i])
-
+    print(f'What would you like to do in {player.location .name}? ')
+    print('1)Gather resources \n2)Travel \n3)View inventory \n4)Trade')
     userInput = int(input())
-    
-    player.inventory += [resources_list[userInput - 1]]
-    
-    print('Explorer has gathered', resources_list[userInput - 1] )
-
-    if resources_list[userInput - 1] == resources_list[0]:
-        player.age = player.age + (1/52)
-        print('Explorer is ', player.age, "year's old")
-        input()
-        
+    if userInput == 1:
+        gather_resources()
+    elif userInput == 2:
+        travel_menu()
+    elif userInput == 3:
+        view_inv()
+    elif userInput == 4:
+        Trade()        
 
 def view_inv():
     while True:
         clr()
-        print('Inventory:')
+        print(f'Inventory:                Explorer\'s age: {int(player.age)}')
         for i in range(len(player.inventory)):
-            print(player.inventory[i])
+            print(f'{player.inventory[i].name} x{player.inventory[i].quantity}')
         e = input('Enter to return to Menu\n')
         if e == '':
             break
         else:
             continue
 
-        
+def Trade():
+     clr()
+     npc_inv = ['food', 'minerals', 'water', 'fuel', 'space tokens']
+
+     num = range(1, 10)
+
+     unique_list = []
+
+     for i in range(5):
+         i = random.choice(npc_inv)
+         if i not in unique_list:
+             unique_list.append(random.choice(npc_inv))
+    
+             print(f'What would you like to trade? \n')
+
+     for i in range(4):
+         print(random.choice(num), unique_list)
+
+     input()       
     
 class Planet:
     def __init__(self, name):
@@ -168,41 +182,35 @@ class Player:
     def travel(self, location):
         self.location = location
 
-     
 
-def menu():
+class Item:
+    def __init__(self, name, quantity = 0):
+        self.name = name
+        self.quantity = quantity
+
+def gather_resources():
     clr()
-    print(f'What would you like to do in {player.location .name}? ')
-    print('1)Gather resources \n2)Travel \n3)View inventory \n4)Trade')
+
+    print(f'What would you like to gather from {player.location.name}? ')
+
+    for i in range(len(resources_list)):
+        print(f'{i + 1}) {resources_list[i].name}')
+
     userInput = int(input())
-    if userInput == 1:
-        gather_resources()
-    elif userInput == 2:
-        travel_menu()
-    elif userInput == 3:
-        view_inv()
-    elif userInput == 4:
-        Trade()
-            
-def Trade():
-    clr()
-    npc_inv = ['food', 'minerals', 'water', 'fuel', 'space tokens']
-
-    num = range(1, 10)
-
-    unique_list = []
-
-    for i in range(5):
-        i = random.choice(npc_inv)
-        if i not in unique_list:
-            unique_list.append(random.choice(npc_inv))
     
-    print(f'What would you like to trade? \n')
+    player.inventory += [resources_list[userInput - 1]]
+    resources_list[userInput - 1].quantity = resources_list[userInput - 1].quantity + random.choice(range(1,10))
+    
+    
+    print(f'Explorer has gathered {resources_list[userInput - 1].name} x{resources_list[userInput - 1].quantity}')
+    player.age = player.age + (1/52)
+    
+    print('One week has passed')
+    input()    
 
-    for i in range(4):
-        print(random.choice(num), unique_list)
 
-    input()
+            
+
     
 #   Trading Interaction
 #   Eating/Drinking Interaction
@@ -216,15 +224,16 @@ if __name__ == "__main__":
                 
     player = Player(planet_list[0])
     
-    resources_list = ['food', 'minerals', 'water', 'fuel']
+    items_list = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens')]
+
+    invetory = []
 
     npc_inv = ['food', 'minerals', 'water', 'fuel', 'space tokens']
 
-    npc_trade = random.choice(tuple(npc_inv))
+    #npc_trade = random.choice(tuple(npc_inv))
 
-    num = random.choice(range(1, 10))
+    #num = random.choice(range(1, 10))
 
-    print(player.age)
     
     #start()
 
@@ -235,5 +244,3 @@ if __name__ == "__main__":
     #player.menu(int(input("What would you like to do here? \n1)Collect resources    2)Trade with NPC    3)Leave Planet\n")))
 #
     #if player.menu([(input("What would you like to do here? \n1)Collect resources    2)Trade with NPC    3)Leave Planet\n"))]): pass
-        
-    
