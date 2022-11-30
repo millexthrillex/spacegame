@@ -131,7 +131,9 @@ def menu():
     elif userInput == 3:
         view_inv()
     elif userInput == 4:
-        Trade()        
+        Trade()       
+    elif userInput == 5:
+        quit() 
 
 def view_inv():
     while True:
