@@ -235,11 +235,12 @@ def gather_resources():
 
         inventory[userInput - 1].quantity += items_list[userInput - 1].quantity
     
-    
+        clr()
         print(f'Explorer has gathered {inventory[userInput - 1].name} x{items_list[userInput - 1].quantity}')
         player.age = player.age + (1/52)
     
-        print('One week has passed')
+        
+        print('One week has passed \nPress any key to continue')
         input()    
 
 
