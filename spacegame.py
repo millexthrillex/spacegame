@@ -145,26 +145,49 @@ def view_inv():
             break
         else:
             continue
+        
+def gather_resources():
+    clr()
 
+    print(f'What would you like to gather from {player.location.name}? ')
+
+    for i in range(len(items_list)-1):
+        print(f'{i + 1}) {items_list[i].name}')
+
+    userInput = int(input())
+
+    if userInput > 4 or userInput < 1:
+        input('Not an option')
+
+    else:
+    
+        items_list[userInput - 1].quantity = random.choice(range(1, 10))
+
+        inventory[userInput - 1].quantity += items_list[userInput - 1].quantity
+    
+    
+        print(f'Explorer has gathered {inventory[userInput - 1].name} x{items_list[userInput - 1].quantity}')
+        player.age = player.age + (1/52)
+    
+        print('One week has passed')
+        input()
+
+        
+        
 def Trade():
      clr()
-     npc_inv = ['food', 'minerals', 'water', 'fuel', 'space tokens']
+     print(f'What would you like to trade? \n')
 
-     num = range(1, 10)
+     #U_input = inter(input())
+     
+     for i in range(len(npc_inv) - 1):
+         ran_num = random.choice(range(1, 10))
+         npc_inv[1].quantity += ran_num
+         print(f'{i + 1}) {ran_num}x {items_list[i].name} for {random.choice(range(1, 10))}x space tokens\n' )
+         
+     input()
 
-     unique_list = []
-
-     for i in range(5):
-         i = random.choice(npc_inv)
-         if i not in unique_list:
-             unique_list.append(random.choice(npc_inv))
-    
-             print(f'What would you like to trade? \n')
-
-     for i in range(4):
-         print(random.choice(num), unique_list)
-
-     input()       
+     
     
 class Planet:
     def __init__(self, name):
@@ -172,6 +195,8 @@ class Planet:
 
     def planet(self, resources):
         self.resources = resources
+
+        
 
 class Player:
     def __init__(self,location, inventory = [], age = 20):
@@ -194,21 +219,26 @@ def gather_resources():
 
     print(f'What would you like to gather from {player.location.name}? ')
 
-    for i in range(len(items_list)):
+    for i in range(len(items_list)-1):
         print(f'{i + 1}) {items_list[i].name}')
 
     userInput = int(input())
-    
-    items_list[userInput - 1].quantity = random.choice(range(1, 10))
 
-    inventory[userInput - 1].quantity += items_list[userInput - 1].quantity
+    if userInput > 4 or userInput < 1:
+        input('Not an option')
+
+    else:
+    
+        items_list[userInput - 1].quantity = random.choice(range(1, 10))
+
+        inventory[userInput - 1].quantity += items_list[userInput - 1].quantity
     
     
-    print(f'Explorer has gathered {inventory[userInput - 1].name} x{items_list[userInput - 1].quantity}')
-    player.age = player.age + (1/52)
+        print(f'Explorer has gathered {inventory[userInput - 1].name} x{items_list[userInput - 1].quantity}')
+        player.age = player.age + (1/52)
     
-    print('One week has passed')
-    input()    
+        print('One week has passed')
+        input()    
 
 
             
@@ -230,7 +260,7 @@ if __name__ == "__main__":
 
     inventory = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens')]
 
-    npc_inv = ['food', 'minerals', 'water', 'fuel', 'space tokens']
+    npc_inv = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens')]
 
     #npc_trade = random.choice(tuple(npc_inv))
 
