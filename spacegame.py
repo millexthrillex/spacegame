@@ -146,31 +146,6 @@ def view_inv():
         else:
             continue
         
-def gather_resources():
-    clr()
-
-    print(f'What would you like to gather from {player.location.name}? ')
-
-    for i in range(len(items_list)-1):
-        print(f'{i + 1}) {items_list[i].name}')
-
-    userInput = int(input())
-
-    if userInput > 4 or userInput < 1:
-        input('Not an option')
-
-    else:
-    
-        items_list[userInput - 1].quantity = random.choice(range(1, 10))
-
-        inventory[userInput - 1].quantity += items_list[userInput - 1].quantity
-    
-    
-        print(f'Explorer has gathered {inventory[userInput - 1].name} x{items_list[userInput - 1].quantity}')
-        player.age = player.age + (1/52)
-    
-        print('One week has passed')
-        input()
 
         
         
@@ -180,12 +155,27 @@ def Trade():
 
      #U_input = inter(input())
      
-     for i in range(len(npc_inv) - 1):
+     for i in range(len(items_list) - 1):
          ran_num = random.choice(range(1, 10))
-         npc_inv[1].quantity += ran_num
-         print(f'{i + 1}) {ran_num}x {items_list[i].name} for {random.choice(range(1, 10))}x space tokens\n' )
-         
-     input()
+         token_ran_num = random.choice(range(1, 10))
+         npc_inv[i].quantity = ran_num
+         npc_inv[4].quantity = token_ran_num
+         print(f'{i + 1}) {ran_num}x {items_list[i].name} for {token_ran_num}x space tokens\n' )
+         if i == 0:
+             npc_inv[5].quantity = token_ran_num
+         if i == 1:
+             npc_inv[6].quantity = token_ran_num
+         if i == 2:
+             npc_inv[7].quantity = token_ran_num
+         if i == 4:
+             npc_inv[8].quantity = token_ran_num
+
+     userInput = int(input())
+     if inventory[userInput - 1].quantity >= npc_inv[userInput - 1].quantity:
+         inventory[4].quantity += npc_inv[userInput + 4].quantity
+         inventory[userInput - 1].quantity -= npc_inv[userInput - 1].quantity
+         print(f'You traded {npc_inv[userInput - 1].quantity}x {npc_inv[userInput - 1].name} for {npc_inv[userInput +4].quantity}x {npc_inv[4].name}')
+         input()
 
      
     
@@ -260,11 +250,10 @@ if __name__ == "__main__":
 
     inventory = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens')]
 
-    npc_inv = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens')]
+    npc_inv = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens'), Item('space tokens1'), Item('space tokens2'), Item('space tokens4'), Item('space tokens4')]
 
     #npc_trade = random.choice(tuple(npc_inv))
 
-    ran_num = random.choice(range(1, 10))
 
     
     #start()
