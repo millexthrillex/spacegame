@@ -111,151 +111,154 @@ def travel_menu():
     for i in range(len(planet_list)):
         print(f'{i + 1}) {planet_list[i].name}  ')
 
-    userInput = int(input())
-
-    if userInput == 1 and inventory[3].quantity >= 1:   # Travel to Earth
-        if player.location.name == planet_list[1].name: # From Mars
-            player.age += 11.78/52
-            inventory[3].quantity -= 1
-            x = 1
-            check_game_over()
-        if player.location.name == planet_list[2].name: # From Neptune
-            player.age += 668.06/52
-            inventory[3].quantity -= 67
-            x = 67
-            check_game_over()
-        if player.location.name == planet_list[3].name: # From Jupiter 
-            player.age += 94.53/52
-            inventory[3].quantity -= 10
-            x = 10
-            check_game_over()
-        if player.location.name == planet_list[4].name: # From Proxima Centauri
-            player.age += 423.57/52
-            inventory[3].quantity -= 42
-            x = 42
-            check_game_over()
-        if player.location.name == planet_list[5].name: # From Proxima Centauri
-            player.age += 423.57/52
-            inventory[3].quantity -= 42
-            x = 42
-            check_game_over()
-
-
-    if userInput == 2 and inventory[3].quantity >= 1:  # Travel to Mars
-        if player.location.name == planet_list[0].name: # From Earth
-            player.age += 11.78/52
-            inventory[3].quantity -= 1
-            x = 1
-            check_game_over()
-        if player.location.name == planet_list[2].name: # From Neptune
-            player.age += 642.49/52
-            inventory[3].quantity -= 64
-            x = 64
-            check_game_over()
-        if player.location.name == planet_list[3].name: # From Jupiter
-            player.age += 0/52
-            inventory[3].quantity -= 0
-            x = 0
-            check_game_over()
-        if player.location.name == planet_list[4].name: # From Uranus
-            player.age += 397.79/52
-            inventory[3].quantity -= 40
-            x = 40
-            check_game_over()
-
-        if player.location.name == planet_list[5].name: # From Proxima Centauri
-            player.age += 0/52
-            inventory[3].quantity -= 0
-            x = 0
-            check_game_over()
-
-    if userInput == 3 and inventory[3].quantity >= 1:  # Travel to Neptune
-        if player.location.name == planet_list[0].name: # From Earth
-            player.age += 654.27/52
-            inventory[3].quantity -= 65
-            x = 65
-            check_game_over()
-        if player.location.name == planet_list[1].name: # From Mars
-            player.age += 642.49/52
-            inventory[3].quantity -= 64
-            x = 64
-            check_game_over()
-        if player.location.name == planet_list[3].name: # From Jupiter
-            player.age += 0/52
-            inventory[3].quantity -= 0
-            x = 0
-            check_game_over()
-        if player.location.name == planet_list[4].name: # From Uranus
-            player.age += 244.70/52
-            inventory[3].quantity -= 25
-            x = 25
-            check_game_over()
-        if player.location.name == planet_list[5].name: # From Proxima Centauri
-            player.age += 0/52
-            inventory[3].quantity -= 0
-            x = 0
-            check_game_over()
-
-    if userInput == 4 and inventory[3].quantity >= 1:  # Travel to Jupiter
-        if player.location.name == planet_list[0].name: # From Earth 
-            player.age += 94.53/52
-            inventory[3].quantity -= 10
-            x = 10
-            check_game_over()
-        if player.location.name == planet_list[1].name: # From Mars
-            player.age += 82.76/52
-            inventory[3].quantity -= 8
-            x = 8
-            check_game_over()
-        if player.location.name == planet_list[2].name: # From Neptune
-            player.age += 559.73/52
-            inventory[3].quantity -= 56
-            x = 56
-            check_game_over()
-        if player.location.name == planet_list[4].name: # From Uranus
-            player.age += 315.03/52
-            inventory[3].quantity -= 32
-            x = 32
-            check_game_over()
-        if player.location.name == planet_list[5].name: # From Proxima Centauri
-            player.age += 0/52
-            inventory[3].quantity -= 0
-            x = 0
-            check_game_over()
-
-    if userInput == 5 and inventory[3].quantity >= 1:  # Travel to Uranus
-        if player.location.name == planet_list[0].name: # From Earth 
-            player.age += 409.57/52
-            inventory[3].quantity -= 41
-            x = 41
-            check_game_over()
-        if player.location.name == planet_list[1].name: # From Mars 
-            player.age += 397.79/52
-            inventory[3].quantity -= 40
-            x = 41
-            check_game_over()
-        if player.location.name == planet_list[2].name: # From Neptune 
-            player.age += 244.7/52
-            inventory[3].quantity -= 25
-            x = 25
-            check_game_over()
-        if player.location.name == planet_list[3].name: # From Jupiter 
-            player.age += 315.03/52
-            inventory[3].quantity -= 32
-            x = 32
-            check_game_over()
-        if player.location.name == planet_list[4].name: # From Proxima Centauri 
-            player.age += 0/52
-            inventory[3].quantity -= 0
-            x = 0
-            check_game_over()
-
-            
+    try:
+        
+        userInput = int(input())
     
-    player.travel(planet_list[userInput - 1])
-    print(f'Explorer is on planet {player.location.name}.\n{x} fuel used.')
-    Mug_event()
-    input()
+        if userInput == 1 and inventory[3].quantity >= 1:   # Travel to Earth
+            if player.location.name == planet_list[1].name: # From Mars
+                player.age += 11.78/52
+                inventory[3].quantity -= 1
+                x = 1
+                check_game_over()
+            if player.location.name == planet_list[2].name: # From Neptune
+                player.age += 668.06/52
+                inventory[3].quantity -= 67
+                x = 67
+                check_game_over()
+            if player.location.name == planet_list[3].name: # From Jupiter 
+                player.age += 94.53/52
+                inventory[3].quantity -= 10
+                x = 10
+                check_game_over()
+            if player.location.name == planet_list[4].name: # From Proxima Centauri
+                player.age += 423.57/52
+                inventory[3].quantity -= 42
+                x = 42
+                check_game_over()
+            if player.location.name == planet_list[5].name: # From Proxima Centauri
+                player.age += 423.57/52
+                inventory[3].quantity -= 42
+                x = 42
+                check_game_over()
+    
+    
+        if userInput == 2 and inventory[3].quantity >= 1:  # Travel to Mars
+            if player.location.name == planet_list[0].name: # From Earth
+                player.age += 11.78/52
+                inventory[3].quantity -= 1
+                x = 1
+                check_game_over()
+            if player.location.name == planet_list[2].name: # From Neptune
+                player.age += 642.49/52
+                inventory[3].quantity -= 64
+                x = 64
+                check_game_over()
+            if player.location.name == planet_list[3].name: # From Jupiter
+                player.age += 0/52
+                inventory[3].quantity -= 0
+                x = 0
+                check_game_over()
+            if player.location.name == planet_list[4].name: # From Uranus
+                player.age += 397.79/52
+                inventory[3].quantity -= 40
+                x = 40
+                check_game_over()
+    
+            if player.location.name == planet_list[5].name: # From Proxima Centauri
+                player.age += 0/52
+                inventory[3].quantity -= 0
+                x = 0
+                check_game_over()
+    
+        if userInput == 3 and inventory[3].quantity >= 1:  # Travel to Neptune
+            if player.location.name == planet_list[0].name: # From Earth
+                player.age += 654.27/52
+                inventory[3].quantity -= 65
+                x = 65
+                check_game_over()
+            if player.location.name == planet_list[1].name: # From Mars
+                player.age += 642.49/52
+                inventory[3].quantity -= 64
+                x = 64
+                check_game_over()
+            if player.location.name == planet_list[3].name: # From Jupiter
+                player.age += 0/52
+                inventory[3].quantity -= 0
+                x = 0
+                check_game_over()
+            if player.location.name == planet_list[4].name: # From Uranus
+                player.age += 244.70/52
+                inventory[3].quantity -= 25
+                x = 25
+                check_game_over()
+            if player.location.name == planet_list[5].name: # From Proxima Centauri
+                player.age += 0/52
+                inventory[3].quantity -= 0
+                x = 0
+                check_game_over()
+    
+        if userInput == 4 and inventory[3].quantity >= 1:  # Travel to Jupiter
+            if player.location.name == planet_list[0].name: # From Earth 
+                player.age += 94.53/52
+                inventory[3].quantity -= 10
+                x = 10
+                check_game_over()
+            if player.location.name == planet_list[1].name: # From Mars
+                player.age += 82.76/52
+                inventory[3].quantity -= 8
+                x = 8
+                check_game_over()
+            if player.location.name == planet_list[2].name: # From Neptune
+                player.age += 559.73/52
+                inventory[3].quantity -= 56
+                x = 56
+                check_game_over()
+            if player.location.name == planet_list[4].name: # From Uranus
+                player.age += 315.03/52
+                inventory[3].quantity -= 32
+                x = 32
+                check_game_over()
+            if player.location.name == planet_list[5].name: # From Proxima Centauri
+                player.age += 0/52
+                inventory[3].quantity -= 0
+                x = 0
+                check_game_over()
+    
+        if userInput == 5 and inventory[3].quantity >= 1:  # Travel to Uranus
+            if player.location.name == planet_list[0].name: # From Earth 
+                player.age += 409.57/52
+                inventory[3].quantity -= 41
+                x = 41
+                check_game_over()
+            if player.location.name == planet_list[1].name: # From Mars 
+                player.age += 397.79/52
+                inventory[3].quantity -= 40
+                x = 41
+                check_game_over()
+            if player.location.name == planet_list[2].name: # From Neptune 
+                player.age += 244.7/52
+                inventory[3].quantity -= 25
+                x = 25
+                check_game_over()
+            if player.location.name == planet_list[3].name: # From Jupiter 
+                player.age += 315.03/52
+                inventory[3].quantity -= 32
+                x = 32
+                check_game_over()
+            if player.location.name == planet_list[4].name: # From Proxima Centauri 
+                player.age += 0/52
+                inventory[3].quantity -= 0
+                x = 0
+                check_game_over()
+    
+            
+        player.travel(planet_list[userInput - 1])
+        print(f'Explorer is on planet {player.location.name}.\n{x} fuel used.')
+        Mug_event()
+        input()
+    except (ValueError, IndexError):
+        input('You never made up your mind and went back to base.')
     
 
 def menu():
@@ -291,7 +294,6 @@ def view_inv():
            
         
 def Trade():
-    try:
         clr()
         print('Good day explorer! Here is what I have to offer.\n')
         print('What would you like to trade? \n')
@@ -333,7 +335,7 @@ def Trade():
                         inventory[4].quantity -= 50
                         print("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
                     else:
-                        input('You do not have enough token')
+                        input('You do not have enough tokens')
     
             if player.location == planet_list[2]:
                 if userInput == 5:
@@ -342,7 +344,7 @@ def Trade():
                         inventory[4].quantity -= 50
                         print("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
                     else:
-                        input('You do not have enough token')
+                        input('You do not have enough tokens')
                      
             if player.location == planet_list[3]:
                 if userInput == 5:
@@ -351,7 +353,7 @@ def Trade():
                         inventory[4].quantity -= 50
                         print("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
                     else:
-                        input('You do not have enough token')
+                        input('You do not have enough tokens')
                      
             if player.location == planet_list[4]:
                 if userInput == 5:
@@ -360,7 +362,7 @@ def Trade():
                         inventory[4].quantity -=50
                         print("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
                     else:
-                        input('You do not have enough token')
+                        input('You do not have enough tokens')
                      
             if userInput <= 4:
                 if inventory[userInput - 1].quantity >= npc_inv[userInput - 1].quantity:
@@ -444,7 +446,7 @@ if __name__ == "__main__":
     inventory[3].quantity = 10
 
 
-    start()
+    #start()
 
 
     while True:
