@@ -131,7 +131,7 @@ def travel_menu():
 def menu():
     clr()
     print(f'What would you like to do in {player.location .name}? ')
-    print('1)Gather resources \n2)Travel \n3)View inventory \n4)Trade')
+    print('1)Gather resources \n2)Travel \n3)View inventory \n4)Trade \n5)Quit Game')
     userInput = int(input())
     if userInput == 1:
         gather_resources()
