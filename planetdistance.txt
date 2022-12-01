@@ -1,0 +1,37 @@
+Planet to Planet		Weeks to travel
+
+
+Mercury Venus			7.56
+Mercury Earth			13.79
+Mercury Mars			25.56
+Mercury Jupiter			108.32
+Mercury Saturn			205.48
+Mercury Uranus			423.35
+Mercury Neptune			668.05
+
+Venus Earth				6.22
+Venus Mars				18.00
+Venus Jupiter			100.75
+Venus Saturn			197.92
+Venus Uranus			415.79
+Venus Neptune			660.49
+
+Earth Mars				11.78
+Earth Jupiter			94.53
+Earth Saturn			191.70
+Earth Uranus			409.57
+Earth Neptune			654.27
+
+Mars Jupiter			82.76
+Mars Saturn				179.93
+Mars Uranus				397.79
+Mars Neptune			642.49
+
+Jupiter Saturn			97.17
+Jupiter Uranus			315.03
+Jupiter Neptune			559.73
+
+Saturn Uranus			217.86
+Saturn Neptune			462.56
+Uranus Neptune			244.70
+
