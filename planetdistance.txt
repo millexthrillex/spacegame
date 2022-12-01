@@ -1,37 +1,37 @@
-Planet to Planet		Weeks to travel
+Planet to Planet		Weeks          Fuel
 
 
-Mercury Venus			7.56
-Mercury Earth			13.79
-Mercury Mars			25.56
-Mercury Jupiter			108.32
-Mercury Saturn			205.48
-Mercury Uranus			423.35
-Mercury Neptune			668.05
+Mercury Venus			7.56            1
+Mercury Earth			13.79           1
+Mercury Mars			25.56           3
+Mercury Jupiter			108.32          11
+Mercury Saturn			205.48          21
+Mercury Uranus			423.35          42
+Mercury Neptune			668.05          67
 
-Venus Earth				6.22
-Venus Mars				18.00
-Venus Jupiter			100.75
-Venus Saturn			197.92
-Venus Uranus			415.79
-Venus Neptune			660.49
+Venus Earth				6.22            1
+Venus Mars				18.00           2   
+Venus Jupiter			100.75          10
+Venus Saturn			197.92          20  
+Venus Uranus			415.79          42
+Venus Neptune			660.49          66
 
-Earth Mars				11.78
-Earth Jupiter			94.53
-Earth Saturn			191.70
-Earth Uranus			409.57
-Earth Neptune			654.27
+Earth Mars				11.78           1
+Earth Jupiter			94.53           10
+Earth Saturn			191.70          19
+Earth Uranus			409.57          41
+Earth Neptune			654.27          65
 
-Mars Jupiter			82.76
-Mars Saturn				179.93
-Mars Uranus				397.79
-Mars Neptune			642.49
+Mars Jupiter			82.76           8
+Mars Saturn				179.93          18
+Mars Uranus				397.79          40
+Mars Neptune			642.49          64
 
-Jupiter Saturn			97.17
-Jupiter Uranus			315.03
-Jupiter Neptune			559.73
+Jupiter Saturn			97.17           10
+Jupiter Uranus			315.03          32
+Jupiter Neptune			559.73          56
 
-Saturn Uranus			217.86
-Saturn Neptune			462.56
-Uranus Neptune			244.70
+Saturn Uranus			217.86          22
+Saturn Neptune			462.56          46
+Uranus Neptune			244.70          25
 

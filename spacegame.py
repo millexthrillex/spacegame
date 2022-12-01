@@ -265,7 +265,7 @@ if __name__ == "__main__":
 
     npc_inv = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens'), Item('space tokens1'), Item('space tokens2'), Item('space tokens4'), Item('space tokens4')]
 
-    #npc_trade = random.choice(tuple(npc_inv))
+    inventory[3].quantity = 10
 
 
     
