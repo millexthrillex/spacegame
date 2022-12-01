@@ -85,22 +85,6 @@ def start():
             clr()
             print("I do not understand you.")
 
-story_list = []
-
-def open_list():
-    global story_list
-    try:
-        with open('story.txt', mode = 'r') as f:
-            b = f.readlines()
-            story_list = [x.replace('\n', '') for x in b]
-    except FileNotFoundError:
-        open(story.txt, w)
-
-
-def view_story():
-    open_list()
-    for i in range(len(story_list)):
-        user_input = input((story_list[i]))
     
 def clr():
     clr = os.system('clear')
@@ -114,20 +98,26 @@ def travel_menu():
         print(f'{i + 1}) {planet_list[i].name}  ')
 
     userInput = int(input())
+
     if userInput == 2:
         if player.location.name == planet_list[0].name:
             player.age += 11.78/52
+            inventory[3].quantity -= 1
+
 
     if userInput == 1:
         if player.location.name == planet_list[1].name:
             player.age += 11.78/52
+            inventory[3].quantity -= 1
+
             
     
     player.travel(planet_list[userInput - 1])
     print(f'Explorer is on planet {player.location.name}')
+    Mug_event()
+    input()
     
 
-    
 def menu():
     clr()
     print(f'What would you like to do in {player.location .name}? ')
@@ -158,54 +148,99 @@ def view_inv():
             break
         else:
             continue
-        
-
-        
+           
         
 def Trade():
-     clr()
-     print(f'What would you like to trade? \n')
+    try:
+        clr()
+        print('Good day explorer! Here is what I have to offer.\n')
+        print('What would you like to trade? \n')
 
-     #U_input = inter(input())
-     
-     for i in range(len(items_list) - 1):
-         ran_num = random.choice(range(1, 10))
-         token_ran_num = random.choice(range(1, 10))
-         npc_inv[i].quantity = ran_num
-         npc_inv[4].quantity = token_ran_num
-         print(f'{i + 1}) {ran_num}x {items_list[i].name} for {token_ran_num}x space tokens\n' )
-         if i == 0:
-             npc_inv[5].quantity = token_ran_num
-         if i == 1:
-             npc_inv[6].quantity = token_ran_num
-         if i == 2:
-             npc_inv[7].quantity = token_ran_num
-         if i == 4:
-             npc_inv[8].quantity = token_ran_num
-
-     userInput = int(input())
-     if inventory[userInput - 1].quantity >= npc_inv[userInput - 1].quantity:
-         inventory[4].quantity += npc_inv[userInput + 4].quantity
-         inventory[userInput - 1].quantity -= npc_inv[userInput - 1].quantity
-         print(f'You traded {npc_inv[userInput - 1].quantity}x {npc_inv[userInput - 1].name} for {npc_inv[userInput +4].quantity}x {npc_inv[4].name}')
-         input()
-
-     
+         
+        for i in range(len(items_list) - 1):
+            ran_num = random.choice(range(1, 10))
+            token_ran_num = random.choice(range(1, 10))
+            npc_inv[i].quantity = ran_num
+            npc_inv[4].quantity = token_ran_num
+            print(f'{i + 1}) {ran_num}x {items_list[i].name} for {token_ran_num}x space tokens\n' )
+            if i == 0:
+                npc_inv[5].quantity = token_ran_num
+            elif i == 1:
+                npc_inv[6].quantity = token_ran_num
+            elif i == 2:
+                npc_inv[7].quantity = token_ran_num
+            elif i == 3:
+                npc_inv[8].quantity = token_ran_num
+        if player.location == planet_list[1]:
+            if inventory[5].quantity == 0:
+                print(f'5) 50x Space Tokens for 1x Special Suit')
+        if player.location == planet_list[2]:
+            if inventory[6].quantity == 0:
+                print(f'5) 50x Space Tokens for 1x Energy Collection Device')
+        if player.location == planet_list[3]:
+            if inventory[7].quantity == 0:
+                print(f'5) 50x Space Tokens for 1x Warp Speed Upgrade')
+        if player.location == planet_list[4]:
+            if inventory[8].quantity == 0:
+                print(f'5) 50x Space Tokens for 1x Advanced Ship')
+        try:
+            userInput = int(input())
+         
+            if player.location == planet_list[1]:
+                if userInput == 5:
+                    if inventory[4].quantity >= 50:
+                        inventory[5].quantity = 1
+                        inventory[4].quantity -= 50
+                        print("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                    else:
+                        input('You do not have enough token')
+    
+            if player.location == planet_list[2]:
+                if userInput == 5:
+                    if inventory[4].quantity >= 50:
+                        inventory[6].quantity = 1
+                        inventory[4].quantity -= 50
+                        print("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                    else:
+                        input('You do not have enough token')
+                     
+            if player.location == planet_list[3]:
+                if userInput == 5:
+                    if inventory[4].quantity >= 50:
+                        inventory[7].quantity = 1
+                        inventory[4].quantity -= 50
+                        print("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                    else:
+                        input('You do not have enough token')
+                     
+            if player.location == planet_list[4]:
+                if userInput == 5:
+                    if inventory[4].quantity >= 50:
+                        inventory[8].quantity = 1
+                        inventory[4].quantity -=50
+                        print("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                    else:
+                        input('You do not have enough token')
+                     
+            if userInput <= 4:
+                if inventory[userInput - 1].quantity >= npc_inv[userInput - 1].quantity:
+                    inventory[4].quantity += npc_inv[userInput + 4].quantity
+                    inventory[userInput - 1].quantity -= npc_inv[userInput - 1].quantity
+                    print(f'You traded {npc_inv[userInput - 1].quantity}x {npc_inv[userInput - 1].name} for {npc_inv[userInput + 4].quantity}x {npc_inv[4].name}')
+                    input()
+        except (ValueError, IndexError):
+                input('The trader looks at you in disgust and kicks you out of his store')
+                 
+        Mug_event()
     
 class Planet:
     def __init__(self, name):
         self.name = name
 
-    def planet(self, resources):
-        self.resources = resources
-
-        
-
 class Player:
-    def __init__(self,location, inventory = [], age = 20):
+    def __init__(self,location, age = 20):
         self.location = location
         self.name = 'name'
-        self.inventory = []
         self.age = age
         
     def travel(self, location):
@@ -240,41 +275,37 @@ def gather_resources():
         print(f'Explorer has gathered {inventory[userInput - 1].name} x{items_list[userInput - 1].quantity}')
         player.age = player.age + (1/52)
     
-        print('One week has passed')
-        input()    
+        print('One week has passed')    
 
-
+    Mug_event()
+    input()
+        
+def Mug_event():
+    ran_num = random.choice(range(1,101))
+    if ran_num == 69:
+        input("A raider mugged you, now you are poor and can't continue your adventure, \nbetter luck next time!")
+        quit()
             
-
-    
-#   Trading Interaction
-#   Eating/Drinking Interaction
-#   Quit Interaction
-#   Time
-
 
 
 if __name__ == "__main__":
-    planet_list = [Planet('Earth'), Planet('Mars')]
+    planet_list = [Planet('Earth'), Planet('Mars'), Planet('Neptune'), Planet('Jupiter'), Planet('Uranus'), Planet('Proxima Centauri')]
                 
     player = Player(planet_list[0])
     
     items_list = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens')]
 
-    inventory = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens')]
+    inventory = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens'), Item('Suit'), Item('Energy Collection device'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
 
-    npc_inv = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens'), Item('space tokens1'), Item('space tokens2'), Item('space tokens4'), Item('space tokens4')]
+    npc_inv = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens'), Item('space tokens1'), Item('space tokens2'), Item('space tokens3'), Item('space tokens4')]
+
+    sp_item_list = [Item('Suit'), Item('Energy Collection device'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
 
     inventory[3].quantity = 10
 
 
-    
-    #start()
+    start()
 
 
     while True:
         menu()
-
-    #player.menu(int(input("What would you like to do here? \n1)Collect resources    2)Trade with NPC    3)Leave Planet\n")))
-#
-    #if player.menu([(input("What would you like to do here? \n1)Collect resources    2)Trade with NPC    3)Leave Planet\n"))]): pass
