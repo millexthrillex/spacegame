@@ -68,13 +68,27 @@ class bcolors:
 
 
 def start():
-    player.name = input(f'{bcolors.BOLD}What is your name?\n{bcolors.ENDC}')
+    clr()
+    print(f"""{bcolors.OKCYAN}{bcolors.BOLD}
+:::     ::: :::::::::: :::::::::  ::::::::::: :::::::::: ::::::::::: :::::::::: :::::::::       :::::::::: :::    ::: :::::::::  :::        ::::::::  :::::::::  :::::::::: :::::::::       ::: 
+:+:     :+: :+:        :+:    :+:     :+:     :+:            :+:     :+:        :+:    :+:      :+:        :+:    :+: :+:    :+: :+:       :+:    :+: :+:    :+: :+:        :+:    :+:      :+: 
++:+     +:+ +:+        +:+    +:+     +:+     +:+            +:+     +:+        +:+    +:+      +:+         +:+  +:+  +:+    +:+ +:+       +:+    +:+ +:+    +:+ +:+        +:+    +:+      +:+ 
++#+     +:+ +#++:++#   +#++:++#:      +#+     :#::+::#       +#+     +#++:++#   +#+    +:+      +#++:++#     +#++:+   +#++:++#+  +#+       +#+    +:+ +#++:++#:  +#++:++#   +#++:++#:       +#+ 
+ +#+   +#+  +#+        +#+    +#+     +#+     +#+            +#+     +#+        +#+    +#+      +#+         +#+  +#+  +#+        +#+       +#+    +#+ +#+    +#+ +#+        +#+    +#+      +#+ 
+  #+#+#+#   #+#        #+#    #+#     #+#     #+#            #+#     #+#        #+#    #+#      #+#        #+#    #+# #+#        #+#       #+#    #+# #+#    #+# #+#        #+#    #+#          
+    ###     ########## ###    ### ########### ###        ########### ########## #########       ########## ###    ### ###        ########## ########  ###    ### ########## ###    ###      ### 
+        
+
+
+
+        {bcolors.ENDC}""")
+    player.name = input(f'{bcolors.BOLD}What is your Twitter handle?\n{bcolors.ENDC}')
    
     
-    story_1 = (f"{bcolors.HEADER}Earth is in trouble. The human civilization has used up all of its resources and will only be able to survive for 65 years. Elon Musk has hired you to help him explore the galaxy and bring back energy from Proxima Centauri.{bcolors.ENDC}")
+    story_1 = (f"{bcolors.OKBLUE}Earth is in trouble. The human civilization has slowly but surely been killing the Earth and it is estimated to die in 65 years. Elon Musk needs your help to explore the galaxy for a special mission in order to restore the Earth's core energy.{bcolors.ENDC}")
     while True:
         
-        x = name_confirm = input(f'You entered {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}. Confirm? \nType "yes" to confirm, "no" to return \n')  
+        x = name_confirm = input(f'You entered {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}. Is this correct? \nType "yes" to confirm, "no" to return. \n')  
         if x == 'yes':
             clr()
             break
@@ -91,7 +105,10 @@ def start():
         x = choice = input("Will you help save the Earth? \nType 'yes' or 'no' \n")
         if choice == 'yes':
             clr()
-            input(f"{bcolors.OKGREEN}Let's save the Earth{bcolors.ENDC}")
+            input(f"""{bcolors.OKGREEN}Let's save the Earth!{bcolors.ENDC}\n""")
+            input("""Your mission, should you choose to accept it, is to explore the planets within the galaxy and acquire special items needed to travel to Proxima Centauri.\nIn order to get there, you will need a super heat-resistant space suit, an advanced ship, and the warp speed ship upgrade. Proxima Centauri has a special type of energy within. Perhaps you may also need something to collect the energy with...\n""")
+            clr()
+            input("Now that you know your mission, your adventure has just begun.\nYou find yourself within Twitter headquarters on Earth. Tell me explorer...\n")
             break
         elif choice == 'no':
             clr()
@@ -122,7 +139,7 @@ def check_game_over():
 
 def travel_menu():
     clr()
-    print(f'Explorer is on planet {player.location.name}')
+    print(f'{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC} is on planet {player.location.name}')
     print("Enter the number of the planet you would like to travel?")
     for i in range(len(planet_list)):
         print(f'{i + 1}) {planet_list[i].name}  ')
@@ -154,11 +171,10 @@ def travel_menu():
                 x = 42
                 check_game_over()
             if player.location.name == planet_list[5].name: # From Proxima Centauri
-                if inventory[5].quantity == 0 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and invnetory[8].quantity == 1:
-                    player.age += 423.57/52
-                    inventory[3].quantity -= 42
-                    x = 42
-                    check_game_over()
+                player.age += 423.57/52
+                inventory[3].quantity -= 42
+                x = 42
+                check_game_over()
                 
     
     
@@ -272,32 +288,61 @@ def travel_menu():
                 check_game_over()
 
         if userInput == 6 and inventory[3].quantity >= 1:  # Travel to Proxima Centauri
-            if player.location.name == planet_list[0].name: # From Earth 
-                player.age += 0/52
-                inventory[3].quantity -= 0
-                x = 0
-                check_game_over()
-            if player.location.name == planet_list[1].name: # From Mars 
-                player.age += 0/52
-                inventory[3].quantity -= 0
-                x = 0
-                check_game_over()
+            if player.location.name == planet_list[0].name: # From Earth
+                if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1:
+                    player.age += 1200/52
+                    inventory[3].quantity -= 120
+                    x = 120
+                    check_game_over()
+                    good_ending()
+                else:
+                    clr()
+                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    quit()
+            if player.location.name == planet_list[1].name: # From Mars
+                if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1: 
+                    player.age += 1202/52
+                    inventory[3].quantity -= 120
+                    x = 120
+                    check_game_over()
+                    good_ending()
+                else:
+                    clr()
+                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    quit()
             if player.location.name == planet_list[2].name: # From Neptune 
-                player.age += 0/52
-                inventory[3].quantity -= 0
-                x = 0
-                check_game_over()
+                if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1: 
+                    player.age += 1320/52
+                    inventory[3].quantity -= 130
+                    x = 130
+                    check_game_over()
+                    good_ending()
+                else:
+                    clr()
+                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    quit()
             if player.location.name == planet_list[3].name: # From Jupiter 
-                player.age += 0/52
-                inventory[3].quantity -= 0
-                x = 0
-                check_game_over()
+                if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1: 
+                    player.age += 1210/52
+                    inventory[3].quantity -= 121
+                    x = 121
+                    check_game_over()
+                    good_ending()
+                else:
+                    clr()
+                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    quit()
             if player.location.name == planet_list[4].name: # From Uranus
-                player.age += 0/52
-                inventory[3].quantity -= 0
-                x = 0
-                check_game_over()
-
+                if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1: 
+                    player.age += 1255/52
+                    inventory[3].quantity -= 126
+                    x = 126
+                    check_game_over()
+                    good_ending()
+                else:
+                    clr()
+                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    quit()
 
 
 
@@ -306,16 +351,24 @@ def travel_menu():
                 
            
         player.travel(planet_list[userInput - 1])
-        print(f'Explorer is on planet {player.location.name}.\n{x} fuel used.')
+        print(f'{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC} is on planet {player.location.name}.\n{x} fuel used.')
         Mug_event()
         input()
     except (ValueError, IndexError):
         input('You never made up your mind and went back to base.')
+        
+def good_ending():
+    clr()
+    player.location = planet_list[0].name
+    input(f'After traveling for many years, you finally reach Proxima Centauri. Having all of the special items granted you the ability to use your Auger to retrieve the energy. You make your journey back home and restore Earth back to normal. Elon Musk is pleased, congratulations {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}, you are now verified on Twitter!')
+    clr()
+    
+    quit()
     
 
 def menu():
     clr()
-    print(f'What would you like to do in {player.location .name}? ')
+    print(f'What would you like to do on {player.location.name}? ')
     print('1)Gather resources \n2)Travel \n3)View inventory \n4)Trade \n5)Quit Game')
     try:
         userInput = int(input())
@@ -332,14 +385,14 @@ def menu():
             if x == "yes":
                 quit()
         else:
-            input('Explorer! That is not a valid option.')
+            input(f'{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}! That is not a valid option.')
     except(ValueError, IndexError):
         input('It seems you partied too much last night, come back later.')
 
 def view_inv():
     while True:
         clr()
-        print(f'Inventory:                Explorer\'s age: {int(player.age)}')
+        print(f'Inventory:                                              {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}\'s age: {int(player.age)}')
         for i in range(len(inventory)):
             if inventory[i].quantity != 0:
                 print(f'{inventory[i].name} x{inventory[i].quantity}')
@@ -352,7 +405,7 @@ def view_inv():
         
 def Trade():
         clr()
-        print('Good day explorer! Here is what I have to offer.\n')
+        print(f'Good day {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}! Here is what I have to offer.\n')
 
          
         for i in range(len(items_list) - 1):
@@ -394,11 +447,11 @@ def Trade():
                             inventory[5].quantity = 1
                             inventory[4].quantity -= 50
                             y = False
-                            input("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                            input(f"Congrats {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
                         else:
-                            input('If you are not gonna make a trade, leave.')
+                            input('If you are not gonna make a trade, leave!')
                     else:
-                        input('You do not have enough tokens')
+                        input('You do not have enough tokens!')
     
             if player.location == planet_list[2]:
                 if userInput == 5:
@@ -407,11 +460,11 @@ def Trade():
                             inventory[6].quantity = 1
                             inventory[4].quantity -= 50
                             y = False
-                            input("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                            input(f"Congrats {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
                         else:
-                            input('If you are not gonna make a trade, leave.')
+                            input('If you are not gonna make a trade, leave!')
                     else:
-                        input('You do not have enough tokens')
+                        input('You do not have enough tokens!')
                      
             if player.location == planet_list[3]:
                 if userInput == 5:
@@ -420,11 +473,11 @@ def Trade():
                             inventory[7].quantity = 1
                             inventory[4].quantity -= 50
                             y = False
-                            input("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                            input(f"Congrats {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
                         else:
-                            input('If you are not gonna make a trade, leave.')
+                            input('If you are not gonna make a trade, leave!')
                     else:
-                        input('You do not have enough tokens')
+                        input('You do not have enough tokens!')
                      
             if player.location == planet_list[4]:
                 if userInput == 5:
@@ -433,17 +486,17 @@ def Trade():
                             inventory[8].quantity = 1
                             inventory[4].quantity -=50
                             y = False
-                            input("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                            input(f"Congrats {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
                         else:
-                            input('If you are not gonna make a trade, leave.')
+                            input('If you are not gonna make a trade, leave!')
                     else:
-                        input('You do not have enough tokens')
+                        input('You do not have enough tokens!')
                      
             if userInput <= 4:
                 if inventory[userInput - 1].quantity >= npc_inv[userInput - 1].quantity:
                     inventory[4].quantity += npc_inv[userInput + 4].quantity
                     inventory[userInput - 1].quantity -= npc_inv[userInput - 1].quantity
-                    print(f'You traded {npc_inv[userInput - 1].quantity}x {npc_inv[userInput - 1].name} for {npc_inv[userInput + 4].quantity}x {npc_inv[4].name}')
+                    print(f'{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC} traded {npc_inv[userInput - 1].quantity}x {npc_inv[userInput - 1].name} for {npc_inv[userInput + 4].quantity}x {npc_inv[4].name}')
                     input()
                     
             else:
@@ -459,7 +512,7 @@ class Planet:
         self.name = name
 
 class Player:
-    def __init__(self,location, age = 60):
+    def __init__(self,location, age = 20):
         self.location = location
         self.name = 'name'
         self.age = age
@@ -484,16 +537,16 @@ def gather_resources():
     try:
         userInput = int(input())
         if userInput > 4 or userInput < 1:
-            input('Explorer! That is not an option.')
+            input(f'{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}! That is not an option.')
 
         else:
     
-            items_list[userInput - 1].quantity = random.choice(range(1, 10))
+            items_list[userInput - 1].quantity = random.choice(range(1, 11))
 
             inventory[userInput - 1].quantity += items_list[userInput - 1].quantity
     
     
-            print(f'Explorer has gathered {inventory[userInput - 1].name} x{items_list[userInput - 1].quantity}')
+            print(f'{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC} has gathered {inventory[userInput - 1].name} x{items_list[userInput - 1].quantity}')
             player.age = player.age + (1/52)
     
             print('One week has passed')    
@@ -502,13 +555,17 @@ def gather_resources():
             input()
 
     except(ValueError):
-        input('It seems you had a stroke, we will try again later.')
+        input(f'{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC} is triggered and will try again later.')
         
 def Mug_event():
     ran_num = random.choice(range(1,101))
-    if ran_num == 69:
-        input("A raider mugged you, now you are poor and can't continue your adventure, \nbetter luck next time!")
+    if ran_num in range(60, 66):
+        input("OH NO! A raider is trying to mug you.")
+        input(f"{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC} tried to fend off the raider, but inevitibly got pummeled to the ground. \n{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC} is now poor and can't continue the adventure. \nBetter luck next time!")
         quit()
+    if ran_num < 11:
+        input("OH NO! A raider is trying to mug you.")
+        input(f"{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC} tried to fend off the raider, and somehow was successful. After a few minutes, {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC} returned to base.")
             
 
 
@@ -526,11 +583,11 @@ if __name__ == "__main__":
     sp_item_list = [Item('Suit'), Item('Energy Collection device'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
 
     inventory[3].quantity = 10
-    inventory[4].quantity = 10
-    inventory[5].quantity = 1
-    inventory[6].quantity = 1
-    inventory[7].quantity = 1
-    inventory[8].quantity = 1
+    inventory[4].quantity = 0
+    inventory[5].quantity = 0
+    inventory[6].quantity = 0
+    inventory[7].quantity = 0
+    inventory[8].quantity = 0
     start()
 
 
