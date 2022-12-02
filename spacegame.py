@@ -84,6 +84,7 @@ def start():
         else:
             clr()
             print("I do not understand you.")
+            print()
 
     
 def clr():
