@@ -43,7 +43,7 @@ import random
 #           
 #Class Events
 #   Health - below minimum
-#   Age - above 65
+#   Age - above 85
 #   Fuel - =0
 #   Resources - =0
 #
@@ -52,13 +52,29 @@ import random
 #   Energy Collection device
 #   Warp Speed Upgrade 
 #   Advanced Ship
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+
+
+
+
 def start():
-    player.name = input('Enter your name\n')
+    player.name = input(f'{bcolors.BOLD}What is your name?\n{bcolors.ENDC}')
+   
     
-    story_1 = "Earth is in trouble. The human civilization has used up all of its resources and will only be able to survive for 65 years. Elon Musk has hired you to help him explore the galaxy and bring back energy from Proxima Centauri." 
+    story_1 = (f"{bcolors.HEADER}Earth is in trouble. The human civilization has used up all of its resources and will only be able to survive for 65 years. Elon Musk has hired you to help him explore the galaxy and bring back energy from Proxima Centauri.{bcolors.ENDC}")
     while True:
         
-        x = name_confirm = input(f'You entered {player.name}. Confirm? \nType "yes" to confirm, "no" to return \n')  
+        x = name_confirm = input(f'You entered {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}. Confirm? \nType "yes" to confirm, "no" to return \n')  
         if x == 'yes':
             clr()
             break
@@ -69,22 +85,21 @@ def start():
             clr()
             print("I do not understand you.")
     
-    print(f'Greetings {player.name}')
+    print(f'Greetings {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}')
     print(story_1)
     while True:
         x = choice = input("Will you help save the Earth? \nType 'yes' or 'no' \n")
         if choice == 'yes':
             clr()
-            print("Let's save the Earth")
+            input(f"{bcolors.OKGREEN}Let's save the Earth{bcolors.ENDC}")
             break
         elif choice == 'no':
             clr()
-            print("That's too bad.")
+            print(f"{bcolors.FAIL}That's too bad.{bcolors.ENDC}")
             exit()
         else:
             clr()
-            print("I do not understand you.")
-            print()
+            print(f"{bcolors.WARNING}I do not understand you.{bcolors.ENDC}")
 
     
 def clr():
@@ -93,12 +108,12 @@ def clr():
 
 def check_age():
     if player.age >= 85:
-        input("You are 85 years old. Mission Failed.\nGame Over")
+        input(f"{bcolors.FAIL}You are 85 years old. Mission Failed.\nGame Over{bcolors.ENDC}")
         exit()
 
 def check_fuel():
     if inventory[3].quantity < 0:
-        input("You are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over")
+        input(f"{bcolors.FAIL}You are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over{bcolors.ENDC}")
         exit()
 
 def check_game_over():
@@ -444,7 +459,7 @@ class Planet:
         self.name = name
 
 class Player:
-    def __init__(self,location, age = 20):
+    def __init__(self,location, age = 60):
         self.location = location
         self.name = 'name'
         self.age = age
@@ -510,13 +525,13 @@ if __name__ == "__main__":
 
     sp_item_list = [Item('Suit'), Item('Energy Collection device'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
 
-    inventory[3].quantity = 200
-    inventory[4].quantity = 200
+    inventory[3].quantity = 10
+    inventory[4].quantity = 10
     inventory[5].quantity = 1
     inventory[6].quantity = 1
     inventory[7].quantity = 1
     inventory[8].quantity = 1
-    #start()
+    start()
 
 
     while True:
