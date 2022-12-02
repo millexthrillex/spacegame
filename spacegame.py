@@ -114,6 +114,7 @@ def travel_menu():
     try:
         
         userInput = int(input())
+        x = 0
     
         if userInput == 1 and inventory[3].quantity >= 1:   # Travel to Earth
             if player.location.name == planet_list[1].name: # From Mars
@@ -137,10 +138,12 @@ def travel_menu():
                 x = 42
                 check_game_over()
             if player.location.name == planet_list[5].name: # From Proxima Centauri
-                player.age += 423.57/52
-                inventory[3].quantity -= 42
-                x = 42
-                check_game_over()
+                if inventory[5].quantity == 0 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and invnetory[8].quantity == 1:
+                    player.age += 423.57/52
+                    inventory[3].quantity -= 42
+                    x = 42
+                    check_game_over()
+                
     
     
         if userInput == 2 and inventory[3].quantity >= 1:  # Travel to Mars
@@ -155,9 +158,9 @@ def travel_menu():
                 x = 64
                 check_game_over()
             if player.location.name == planet_list[3].name: # From Jupiter
-                player.age += 0/52
-                inventory[3].quantity -= 0
-                x = 0
+                player.age += 82.76/52
+                inventory[3].quantity -= 8
+                x = 8
                 check_game_over()
             if player.location.name == planet_list[4].name: # From Uranus
                 player.age += 397.79/52
@@ -183,9 +186,9 @@ def travel_menu():
                 x = 64
                 check_game_over()
             if player.location.name == planet_list[3].name: # From Jupiter
-                player.age += 0/52
-                inventory[3].quantity -= 0
-                x = 0
+                player.age += 559.73/52
+                inventory[3].quantity -= 56
+                x = 56
                 check_game_over()
             if player.location.name == planet_list[4].name: # From Uranus
                 player.age += 244.70/52
@@ -251,8 +254,14 @@ def travel_menu():
                 inventory[3].quantity -= 0
                 x = 0
                 check_game_over()
-    
-            
+
+
+
+
+
+
+                
+           
         player.travel(planet_list[userInput - 1])
         print(f'Explorer is on planet {player.location.name}.\n{x} fuel used.')
         Mug_event()
@@ -265,19 +274,24 @@ def menu():
     clr()
     print(f'What would you like to do in {player.location .name}? ')
     print('1)Gather resources \n2)Travel \n3)View inventory \n4)Trade \n5)Quit Game')
-    userInput = int(input())
-    if userInput == 1:
-        gather_resources()
-    elif userInput == 2:
-        travel_menu()
-    elif userInput == 3:
-        view_inv()
-    elif userInput == 4:
-        Trade()
-    elif userInput == 5:
-        x = input("Are you sure you want to quit?\nType 'yes' to quit\n")
-        if x == "yes":
-            quit()        
+    try:
+        userInput = int(input())
+        if userInput == 1:
+            gather_resources()
+        elif userInput == 2:
+            travel_menu()
+        elif userInput == 3:
+            view_inv()
+        elif userInput == 4:
+            Trade()
+        elif userInput == 5:
+            x = input("Are you sure you want to quit?\nType 'yes' to quit\n")
+            if x == "yes":
+                quit()
+        else:
+            input('Explorer! That is not a valid option.')
+    except(ValueError, IndexError):
+        input('It seems you partied too much last night, come back later.')
 
 def view_inv():
     while True:
@@ -286,7 +300,7 @@ def view_inv():
         for i in range(len(inventory)):
             if inventory[i].quantity != 0:
                 print(f'{inventory[i].name} x{inventory[i].quantity}')
-        e = input('Enter to return to Menu\n')
+        e = input('Enter to return to Menu.\n')
         if e == '':
             break
         else:
@@ -296,7 +310,6 @@ def view_inv():
 def Trade():
         clr()
         print('Good day explorer! Here is what I have to offer.\n')
-        print('What would you like to trade? \n')
 
          
         for i in range(len(items_list) - 1):
@@ -325,42 +338,61 @@ def Trade():
         if player.location == planet_list[4]:
             if inventory[8].quantity == 0:
                 print(f'5) 50x Space Tokens for 1x Advanced Ship')
+        print('What would you like to trade? \n')
+
         try:
+            y = True
             userInput = int(input())
          
             if player.location == planet_list[1]:
                 if userInput == 5:
                     if inventory[4].quantity >= 50:
-                        inventory[5].quantity = 1
-                        inventory[4].quantity -= 50
-                        print("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                        if inventory[5].quantity == 0:
+                            inventory[5].quantity = 1
+                            inventory[4].quantity -= 50
+                            y = False
+                            input("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                        else:
+                            input('If you are not gonna make a trade, leave.')
                     else:
                         input('You do not have enough tokens')
     
             if player.location == planet_list[2]:
                 if userInput == 5:
                     if inventory[4].quantity >= 50:
-                        inventory[6].quantity = 1
-                        inventory[4].quantity -= 50
-                        print("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                        if inventory[6].quantity == 0:
+                            inventory[6].quantity = 1
+                            inventory[4].quantity -= 50
+                            y = False
+                            input("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                        else:
+                            input('If you are not gonna make a trade, leave.')
                     else:
                         input('You do not have enough tokens')
                      
             if player.location == planet_list[3]:
                 if userInput == 5:
                     if inventory[4].quantity >= 50:
-                        inventory[7].quantity = 1
-                        inventory[4].quantity -= 50
-                        print("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                        if inventory[7].quantity == 0:
+                            inventory[7].quantity = 1
+                            inventory[4].quantity -= 50
+                            y = False
+                            input("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                        else:
+                            input('If you are not gonna make a trade, leave.')
                     else:
                         input('You do not have enough tokens')
                      
             if player.location == planet_list[4]:
                 if userInput == 5:
                     if inventory[4].quantity >= 50:
-                        inventory[8].quantity = 1
-                        inventory[4].quantity -=50
-                        print("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                        if inventory[7].quantity == 0:
+                            inventory[8].quantity = 1
+                            inventory[4].quantity -=50
+                            y = False
+                            input("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                        else:
+                            input('If you are not gonna make a trade, leave.')
                     else:
                         input('You do not have enough tokens')
                      
@@ -370,8 +402,12 @@ def Trade():
                     inventory[userInput - 1].quantity -= npc_inv[userInput - 1].quantity
                     print(f'You traded {npc_inv[userInput - 1].quantity}x {npc_inv[userInput - 1].name} for {npc_inv[userInput + 4].quantity}x {npc_inv[4].name}')
                     input()
+                    
+            else:
+                if y == True:
+                    input('The trader looks at you in disgust and kicks you out of his store.')
         except (ValueError, IndexError):
-                input('The trader looks at you in disgust and kicks you out of his store')
+                input('The trader looks at you in disgust and kicks you out of his store.')
                  
         Mug_event()
     
@@ -402,25 +438,28 @@ def gather_resources():
     for i in range(len(items_list)-1):
         print(f'{i + 1}) {items_list[i].name}')
 
-    userInput = int(input())
+    try:
+        userInput = int(input())
+        if userInput > 4 or userInput < 1:
+            input('Explorer! That is not an option.')
 
-    if userInput > 4 or userInput < 1:
-        input('Not an option')
+        else:
+    
+            items_list[userInput - 1].quantity = random.choice(range(1, 10))
 
-    else:
+            inventory[userInput - 1].quantity += items_list[userInput - 1].quantity
     
-        items_list[userInput - 1].quantity = random.choice(range(1, 10))
+    
+            print(f'Explorer has gathered {inventory[userInput - 1].name} x{items_list[userInput - 1].quantity}')
+            player.age = player.age + (1/52)
+    
+            print('One week has passed')    
 
-        inventory[userInput - 1].quantity += items_list[userInput - 1].quantity
-    
-    
-        print(f'Explorer has gathered {inventory[userInput - 1].name} x{items_list[userInput - 1].quantity}')
-        player.age = player.age + (1/52)
-    
-        print('One week has passed')    
+            Mug_event()
+            input()
 
-    Mug_event()
-    input()
+    except(ValueError):
+        input('It seems you had a stroke, we will try again later.')
         
 def Mug_event():
     ran_num = random.choice(range(1,101))
@@ -443,9 +482,12 @@ if __name__ == "__main__":
 
     sp_item_list = [Item('Suit'), Item('Energy Collection device'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
 
-    inventory[3].quantity = 10
-
-
+    inventory[3].quantity = 200
+    inventory[4].quantity = 200
+    inventory[5].quantity = 1
+    inventory[6].quantity = 1
+    inventory[7].quantity = 1
+    inventory[8].quantity = 1
     #start()
 
 
