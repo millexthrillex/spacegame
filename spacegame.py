@@ -255,6 +255,33 @@ def travel_menu():
                 x = 0
                 check_game_over()
 
+        if userInput == 6 and inventory[3].quantity >= 1:  # Travel to Proxima Centauri
+            if player.location.name == planet_list[0].name: # From Earth 
+                player.age += 0/52
+                inventory[3].quantity -= 0
+                x = 0
+                check_game_over()
+            if player.location.name == planet_list[1].name: # From Mars 
+                player.age += 0/52
+                inventory[3].quantity -= 0
+                x = 0
+                check_game_over()
+            if player.location.name == planet_list[2].name: # From Neptune 
+                player.age += 0/52
+                inventory[3].quantity -= 0
+                x = 0
+                check_game_over()
+            if player.location.name == planet_list[3].name: # From Jupiter 
+                player.age += 0/52
+                inventory[3].quantity -= 0
+                x = 0
+                check_game_over()
+            if player.location.name == planet_list[4].name: # From Uranus
+                player.age += 0/52
+                inventory[3].quantity -= 0
+                x = 0
+                check_game_over()
+
 
 
 
