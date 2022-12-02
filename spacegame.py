@@ -138,11 +138,10 @@ def travel_menu():
                 x = 42
                 check_game_over()
             if player.location.name == planet_list[5].name: # From Proxima Centauri
-                if inventory[5].quantity == 0 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and invnetory[8].quantity == 1:
-                    player.age += 423.57/52
-                    inventory[3].quantity -= 42
-                    x = 42
-                    check_game_over()
+                player.age += 423.57/52
+                inventory[3].quantity -= 42
+                x = 42
+                check_game_over()
                 
     
     
@@ -255,6 +254,62 @@ def travel_menu():
                 x = 0
                 check_game_over()
 
+        if userInput == 6 and inventory[3].quantity >= 1:  # Travel to Proxima Centauri
+            if player.location.name == planet_list[0].name: # From Earth
+                if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1:
+                    player.age += 1200/52
+                    inventory[3].quantity -= 120
+                    x = 120
+                    check_game_over()
+                    good_ending()
+                else:
+                    clr()
+                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    quit()
+            if player.location.name == planet_list[1].name: # From Mars
+                if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1: 
+                    player.age += 1202/52
+                    inventory[3].quantity -= 120
+                    x = 120
+                    check_game_over()
+                    good_ending()
+                else:
+                    clr()
+                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    quit()
+            if player.location.name == planet_list[2].name: # From Neptune 
+                if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1: 
+                    player.age += 1320/52
+                    inventory[3].quantity -= 130
+                    x = 130
+                    check_game_over()
+                    good_ending()
+                else:
+                    clr()
+                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    quit()
+            if player.location.name == planet_list[3].name: # From Jupiter 
+                if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1: 
+                    player.age += 1210/52
+                    inventory[3].quantity -= 121
+                    x = 121
+                    check_game_over()
+                    good_ending()
+                else:
+                    clr()
+                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    quit()
+            if player.location.name == planet_list[4].name: # From Uranus
+                if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1: 
+                    player.age += 1255/52
+                    inventory[3].quantity -= 126
+                    x = 126
+                    check_game_over()
+                    good_ending()
+                else:
+                    clr()
+                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    quit()
 
 
 
@@ -268,7 +323,14 @@ def travel_menu():
         input()
     except (ValueError, IndexError):
         input('You never made up your mind and went back to base.')
+        
+def good_ending():
+    clr()
+    player.location = planet_list[0].name
+    input('You collected all the items to get you to and back from Proxima Centauri')
+    clr()
     
+    quit()
 
 def menu():
     clr()
@@ -364,7 +426,7 @@ def Trade():
                             inventory[6].quantity = 1
                             inventory[4].quantity -= 50
                             y = False
-                            input("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                            input("Congrats, you have acquired a Special Item. \nThis Energy Collector Auger will help retrive the energy from Proxima Centauri.")
                         else:
                             input('If you are not gonna make a trade, leave.')
                     else:
@@ -377,7 +439,7 @@ def Trade():
                             inventory[7].quantity = 1
                             inventory[4].quantity -= 50
                             y = False
-                            input("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                            input("Congrats, you have acquired a Special Item. \nThis warp speed upgrade will help you reach Proxima Centaury. \nBut be careful, a minimum amount of fuel is still required.")
                         else:
                             input('If you are not gonna make a trade, leave.')
                     else:
@@ -386,11 +448,11 @@ def Trade():
             if player.location == planet_list[4]:
                 if userInput == 5:
                     if inventory[4].quantity >= 50:
-                        if inventory[7].quantity == 0:
+                        if inventory[8].quantity == 0:
                             inventory[8].quantity = 1
                             inventory[4].quantity -=50
                             y = False
-                            input("Congrats, you have acquired a Special Item \nThis special suit will help withstand the heat of Proxima Centaury")
+                            input("Congrats, you have acquired a Special Item. \nThis Advanced Ship has the technology to support warp speed to travel light years...")
                         else:
                             input('If you are not gonna make a trade, leave.')
                     else:
@@ -463,9 +525,13 @@ def gather_resources():
         
 def Mug_event():
     ran_num = random.choice(range(1,101))
-    if ran_num == 69:
-        input("A raider mugged you, now you are poor and can't continue your adventure, \nbetter luck next time!")
+    if ran_num in range(60, 66):
+        input("OH NO! A raider is trying to mug you.")
+        input("You tried to defend yourself, but enivetible got pumbled to the ground, \nnow you are poor and can't continue your adventure. \nBetter luck next time!")
         quit()
+    if ran_num < 10:
+        input("OH NO! A raider is trying to mug you.")
+        input("You tried to defend yourself, and somehow you succedded so you went back to base.")
             
 
 
@@ -476,14 +542,14 @@ if __name__ == "__main__":
     
     items_list = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens')]
 
-    inventory = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens'), Item('Suit'), Item('Energy Collection device'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
+    inventory = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens'), Item('Special Suit'), Item('Energy Collecter Auger'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
 
     npc_inv = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens'), Item('space tokens1'), Item('space tokens2'), Item('space tokens3'), Item('space tokens4')]
 
     sp_item_list = [Item('Suit'), Item('Energy Collection device'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
 
     inventory[3].quantity = 200
-    inventory[4].quantity = 200
+    inventory[4].quantity = 0
     inventory[5].quantity = 1
     inventory[6].quantity = 1
     inventory[7].quantity = 1
