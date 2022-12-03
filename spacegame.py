@@ -125,7 +125,21 @@ def clr():
 
 def check_age():
     if player.age >= 85:
-        input(f"{bcolors.FAIL}You are 85 years old. Mission Failed.\nGame Over{bcolors.ENDC}")
+        input(f"""{bcolors.FAIL}You are now 85 years old and are no longer able to remember anything. What were you even doing...?\n
+
+ ::::::::      :::     ::::    ::::  ::::::::::       ::::::::  :::     ::: :::::::::: :::::::::  
+:+:    :+:   :+: :+:   +:+:+: :+:+:+ :+:             :+:    :+: :+:     :+: :+:        :+:    :+: 
++:+         +:+   +:+  +:+ +:+:+ +:+ +:+             +:+    +:+ +:+     +:+ +:+        +:+    +:+ 
+:#:        +#++:++#++: +#+  +:+  +#+ +#++:++#        +#+    +:+ +#+     +:+ +#++:++#   +#++:++#:  
++#+   +#+# +#+     +#+ +#+       +#+ +#+             +#+    +#+  +#+   +#+  +#+        +#+    +#+ 
+#+#    #+# #+#     #+# #+#       #+# #+#             #+#    #+#   #+#+#+#   #+#        #+#    #+# 
+ ########  ###     ### ###       ### ##########       ########      ###     ########## ###    ### 
+
+
+
+
+
+            {bcolors.ENDC}""")
         exit()
 
 def check_fuel():
@@ -146,6 +160,8 @@ def check_fuel():
 
             {bcolors.ENDC}""")
         exit()
+
+
 
 def check_game_over():
     check_age()
