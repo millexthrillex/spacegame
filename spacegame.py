@@ -108,7 +108,7 @@ def start():
             input(f"""{bcolors.OKGREEN}Let's save the Earth!{bcolors.ENDC}\n""")
             input("""Your mission, should you choose to accept it, is to explore the planets within the galaxy and acquire special items needed to travel to Proxima Centauri.\nIn order to get there, you will need a super heat-resistant space suit, an advanced ship, and the warp speed ship upgrade. Proxima Centauri has a special type of energy within. Perhaps you may also need something to collect the energy with...\n""")
             clr()
-            input("Now that you know your mission, your adventure has just begun.\nYou find yourself within Twitter headquarters on Earth. Tell me explorer...\n")
+            input("Now that you know your mission, your adventure has just begun.\nYou find yourself within Twitter headquarters on Earth. So, tell me explorer...\n")
             break
         elif choice == 'no':
             clr()
@@ -130,7 +130,21 @@ def check_age():
 
 def check_fuel():
     if inventory[3].quantity < 0:
-        input(f"{bcolors.FAIL}You are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over{bcolors.ENDC}")
+        input(f"""{bcolors.FAIL}You are out of fuel. You spend the next couple of years floating in space and eventually die...\n
+
+ ::::::::      :::     ::::    ::::  ::::::::::       ::::::::  :::     ::: :::::::::: :::::::::  
+:+:    :+:   :+: :+:   +:+:+: :+:+:+ :+:             :+:    :+: :+:     :+: :+:        :+:    :+: 
++:+         +:+   +:+  +:+ +:+:+ +:+ +:+             +:+    +:+ +:+     +:+ +:+        +:+    +:+ 
+:#:        +#++:++#++: +#+  +:+  +#+ +#++:++#        +#+    +:+ +#+     +:+ +#++:++#   +#++:++#:  
++#+   +#+# +#+     +#+ +#+       +#+ +#+             +#+    +#+  +#+   +#+  +#+        +#+    +#+ 
+#+#    #+# #+#     #+# #+#       #+# #+#             #+#    #+#   #+#+#+#   #+#        #+#    #+# 
+ ########  ###     ### ###       ### ##########       ########      ###     ########## ###    ### 
+
+
+
+
+
+            {bcolors.ENDC}""")
         exit()
 
 def check_game_over():
@@ -297,7 +311,21 @@ def travel_menu():
                     good_ending()
                 else:
                     clr()
-                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    print('''You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\n
+
+ ::::::::      :::     ::::    ::::  ::::::::::       ::::::::  :::     ::: :::::::::: :::::::::  
+:+:    :+:   :+: :+:   +:+:+: :+:+:+ :+:             :+:    :+: :+:     :+: :+:        :+:    :+: 
++:+         +:+   +:+  +:+ +:+:+ +:+ +:+             +:+    +:+ +:+     +:+ +:+        +:+    +:+ 
+:#:        +#++:++#++: +#+  +:+  +#+ +#++:++#        +#+    +:+ +#+     +:+ +#++:++#   +#++:++#:  
++#+   +#+# +#+     +#+ +#+       +#+ +#+             +#+    +#+  +#+   +#+  +#+        +#+    +#+ 
+#+#    #+# #+#     #+# #+#       #+# #+#             #+#    #+#   #+#+#+#   #+#        #+#    #+# 
+ ########  ###     ### ###       ### ##########       ########      ###     ########## ###    ### 
+
+
+
+
+
+                        ''')
                     quit()
             if player.location.name == planet_list[1].name: # From Mars
                 if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1: 
@@ -308,7 +336,21 @@ def travel_menu():
                     good_ending()
                 else:
                     clr()
-                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    print('''You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\n
+
+ ::::::::      :::     ::::    ::::  ::::::::::       ::::::::  :::     ::: :::::::::: :::::::::  
+:+:    :+:   :+: :+:   +:+:+: :+:+:+ :+:             :+:    :+: :+:     :+: :+:        :+:    :+: 
++:+         +:+   +:+  +:+ +:+:+ +:+ +:+             +:+    +:+ +:+     +:+ +:+        +:+    +:+ 
+:#:        +#++:++#++: +#+  +:+  +#+ +#++:++#        +#+    +:+ +#+     +:+ +#++:++#   +#++:++#:  
++#+   +#+# +#+     +#+ +#+       +#+ +#+             +#+    +#+  +#+   +#+  +#+        +#+    +#+ 
+#+#    #+# #+#     #+# #+#       #+# #+#             #+#    #+#   #+#+#+#   #+#        #+#    #+# 
+ ########  ###     ### ###       ### ##########       ########      ###     ########## ###    ### 
+
+
+
+
+
+                        ''')
                     quit()
             if player.location.name == planet_list[2].name: # From Neptune 
                 if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1: 
@@ -319,7 +361,21 @@ def travel_menu():
                     good_ending()
                 else:
                     clr()
-                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    print('''You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\n
+
+ ::::::::      :::     ::::    ::::  ::::::::::       ::::::::  :::     ::: :::::::::: :::::::::  
+:+:    :+:   :+: :+:   +:+:+: :+:+:+ :+:             :+:    :+: :+:     :+: :+:        :+:    :+: 
++:+         +:+   +:+  +:+ +:+:+ +:+ +:+             +:+    +:+ +:+     +:+ +:+        +:+    +:+ 
+:#:        +#++:++#++: +#+  +:+  +#+ +#++:++#        +#+    +:+ +#+     +:+ +#++:++#   +#++:++#:  
++#+   +#+# +#+     +#+ +#+       +#+ +#+             +#+    +#+  +#+   +#+  +#+        +#+    +#+ 
+#+#    #+# #+#     #+# #+#       #+# #+#             #+#    #+#   #+#+#+#   #+#        #+#    #+# 
+ ########  ###     ### ###       ### ##########       ########      ###     ########## ###    ### 
+
+
+
+
+
+                        ''')
                     quit()
             if player.location.name == planet_list[3].name: # From Jupiter 
                 if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1: 
@@ -330,7 +386,21 @@ def travel_menu():
                     good_ending()
                 else:
                     clr()
-                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    print('''You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\n
+
+ ::::::::      :::     ::::    ::::  ::::::::::       ::::::::  :::     ::: :::::::::: :::::::::  
+:+:    :+:   :+: :+:   +:+:+: :+:+:+ :+:             :+:    :+: :+:     :+: :+:        :+:    :+: 
++:+         +:+   +:+  +:+ +:+:+ +:+ +:+             +:+    +:+ +:+     +:+ +:+        +:+    +:+ 
+:#:        +#++:++#++: +#+  +:+  +#+ +#++:++#        +#+    +:+ +#+     +:+ +#++:++#   +#++:++#:  
++#+   +#+# +#+     +#+ +#+       +#+ +#+             +#+    +#+  +#+   +#+  +#+        +#+    +#+ 
+#+#    #+# #+#     #+# #+#       #+# #+#             #+#    #+#   #+#+#+#   #+#        #+#    #+# 
+ ########  ###     ### ###       ### ##########       ########      ###     ########## ###    ### 
+
+
+
+
+
+                        ''')
                     quit()
             if player.location.name == planet_list[4].name: # From Uranus
                 if inventory[5].quantity == 1 and inventory[6].quantity == 1 and inventory[7].quantity == 1 and inventory[8].quantity == 1: 
@@ -341,7 +411,21 @@ def travel_menu():
                     good_ending()
                 else:
                     clr()
-                    print('You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\nGame Over')
+                    print('''You do not have the required special items... \nYou are out of fuel. You spend the next couple of years floating in space and eventually die...\n
+
+ ::::::::      :::     ::::    ::::  ::::::::::       ::::::::  :::     ::: :::::::::: :::::::::  
+:+:    :+:   :+: :+:   +:+:+: :+:+:+ :+:             :+:    :+: :+:     :+: :+:        :+:    :+: 
++:+         +:+   +:+  +:+ +:+:+ +:+ +:+             +:+    +:+ +:+     +:+ +:+        +:+    +:+ 
+:#:        +#++:++#++: +#+  +:+  +#+ +#++:++#        +#+    +:+ +#+     +:+ +#++:++#   +#++:++#:  
++#+   +#+# +#+     +#+ +#+       +#+ +#+             +#+    +#+  +#+   +#+  +#+        +#+    +#+ 
+#+#    #+# #+#     #+# #+#       #+# #+#             #+#    #+#   #+#+#+#   #+#        #+#    #+# 
+ ########  ###     ### ###       ### ##########       ########      ###     ########## ###    ### 
+
+
+
+
+
+                        ''')
                     quit()
 
 
@@ -561,7 +645,21 @@ def Mug_event():
     ran_num = random.choice(range(1,101))
     if ran_num in range(60, 66):
         input("OH NO! A raider is trying to mug you.")
-        input(f"{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC} tried to fend off the raider, but inevitibly got pummeled to the ground. \n{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC} is now poor and can't continue the adventure. \nBetter luck next time!")
+        input(f"""{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}{bcolors.FAIL} tried to fend off the raider, but inevitibly got pummeled to the ground.{bcolors.ENDC} \n{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC} {bcolors.FAIL}is now poor and can't continue the adventure. \nBetter luck next time!{bcolors.ENDC}
+{bcolors.FAIL}
+ ::::::::      :::     ::::    ::::  ::::::::::       ::::::::  :::     ::: :::::::::: :::::::::  
+:+:    :+:   :+: :+:   +:+:+: :+:+:+ :+:             :+:    :+: :+:     :+: :+:        :+:    :+: 
++:+         +:+   +:+  +:+ +:+:+ +:+ +:+             +:+    +:+ +:+     +:+ +:+        +:+    +:+ 
+:#:        +#++:++#++: +#+  +:+  +#+ +#++:++#        +#+    +:+ +#+     +:+ +#++:++#   +#++:++#:  
++#+   +#+# +#+     +#+ +#+       +#+ +#+             +#+    +#+  +#+   +#+  +#+        +#+    +#+ 
+#+#    #+# #+#     #+# #+#       #+# #+#             #+#    #+#   #+#+#+#   #+#        #+#    #+# 
+ ########  ###     ### ###       ### ##########       ########      ###     ########## ###    ### 
+{bcolors.ENDC}
+
+
+
+
+            """)
         quit()
     if ran_num < 11:
         input("OH NO! A raider is trying to mug you.")
@@ -582,13 +680,13 @@ if __name__ == "__main__":
 
     sp_item_list = [Item('Suit'), Item('Energy Collection device'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
 
-    inventory[3].quantity = 10
+    inventory[3].quantity = 11
     inventory[4].quantity = 0
     inventory[5].quantity = 0
     inventory[6].quantity = 0
     inventory[7].quantity = 0
     inventory[8].quantity = 0
-    start()
+    #start()
 
 
     while True:
