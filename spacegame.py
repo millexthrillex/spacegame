@@ -108,7 +108,7 @@ def start():
             input(f"""{bcolors.OKGREEN}Let's save the Earth!{bcolors.ENDC}\n""")
             input("""Your mission, should you choose to accept it, is to explore the planets within the galaxy and acquire special items needed to travel to Proxima Centauri.\n\nIn order to get there, you will need a super heat-resistant space suit, an advanced ship, and the warp speed ship upgrade.\n\nProxima Centauri has a special type of energy within. Perhaps you may also need something to collect the energy with...\n""")
             clr()
-            input("Now that you know your mission, your adventure has just begun.\n\nYou find yourself within Twitter headquarters on Earth.\n\nSo, tell me explorer...\n")
+            input(f"Now that you know your mission, your adventure has just begun.\n\nYou find yourself within Twitter headquarters on Earth.\n\nSo, tell me {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}...\n")
             break
         elif choice == 'no':
             clr()
