@@ -507,7 +507,7 @@ def menu():
                 travel_menu()
             else:
                 clr()
-                input("You don't even have any fuel to go anwhere!")
+                input("You don't even have any fuel to go anywhere!")
         elif userInput == 3:
             view_inv()
         elif userInput == 4:
