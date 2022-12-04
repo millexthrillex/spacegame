@@ -31,7 +31,7 @@ import random
 #   Time +1 adds to Age of character
 #   
 #Class Character
-#   Health - minimum food/water
+#   Health - minimum Food/Water
 #   Age - max 65
 #   Inventory - resources/currency obtained
 #   
@@ -85,7 +85,7 @@ def start():
     player.name = input(f'{bcolors.BOLD}What is your Twitter handle?\n{bcolors.ENDC}')
    
     
-    story_1 = (f"{bcolors.OKBLUE}Earth is in trouble. The human civilization has slowly but surely been killing the Earth and it is estimated to die in 65 years.\nElon Musk needs your help to explore the galaxy for a special mission in order to restore the Earth's core energy.{bcolors.ENDC}")
+    story_1 = (f"{bcolors.WARNING}Earth is in trouble. The human civilization has slowly but surely been killing the Earth and it is estimated to die in 65 years.\nElon Musk needs your help to explore the galaxy for a special mission in order to restore the Earth's core energy.{bcolors.ENDC}")
     while True:
         
         x = name_confirm = input(f'You entered {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}. Is this correct? \nType "yes" to confirm, "no" to return. \n')  
@@ -99,20 +99,34 @@ def start():
             clr()
             print("I do not understand you.")
     
-    print(f'Greetings {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}')
+    print(f'                                                Greetings {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}!')
     print(story_1)
     while True:
-        x = choice = input("Will you help save the Earth? \nType 'yes' or 'no' \n")
+        x = choice = input("\nWill you help save the Earth? \nType 'yes' or 'no' \n")
         if choice == 'yes':
             clr()
             input(f"""{bcolors.OKGREEN}Let's save the Earth!{bcolors.ENDC}\n""")
-            input("""Your mission, should you choose to accept it, is to explore the planets within the galaxy and acquire special items needed to travel to Proxima Centauri.\nIn order to get there, you will need a super heat-resistant space suit, an advanced ship, and the warp speed ship upgrade.\nProxima Centauri has a special type of energy within. Perhaps you may also need something to collect the energy with...\n""")
+            input("""Your mission, should you choose to accept it, is to explore the planets within the galaxy and acquire special items needed to travel to Proxima Centauri.\n\nIn order to get there, you will need a super heat-resistant space suit, an advanced ship, and the warp speed ship upgrade.\n\nProxima Centauri has a special type of energy within. Perhaps you may also need something to collect the energy with...\n""")
             clr()
-            input("Now that you know your mission, your adventure has just begun.\nYou find yourself within Twitter headquarters on Earth. So, tell me explorer...\n")
+            input("Now that you know your mission, your adventure has just begun.\n\nYou find yourself within Twitter headquarters on Earth.\n\nSo, tell me explorer...\n")
             break
         elif choice == 'no':
             clr()
-            print(f"{bcolors.FAIL}That's too bad.{bcolors.ENDC}")
+            print(f"""{bcolors.FAIL}That's too bad.\n{bcolors.ENDC}
+ ::::::::      :::     ::::    ::::  ::::::::::       ::::::::  :::     ::: :::::::::: :::::::::  
+:+:    :+:   :+: :+:   +:+:+: :+:+:+ :+:             :+:    :+: :+:     :+: :+:        :+:    :+: 
++:+         +:+   +:+  +:+ +:+:+ +:+ +:+             +:+    +:+ +:+     +:+ +:+        +:+    +:+ 
+:#:        +#++:++#++: +#+  +:+  +#+ +#++:++#        +#+    +:+ +#+     +:+ +#++:++#   +#++:++#:  
++#+   +#+# +#+     +#+ +#+       +#+ +#+             +#+    +#+  +#+   +#+  +#+        +#+    +#+ 
+#+#    #+# #+#     #+# #+#       #+# #+#             #+#    #+#   #+#+#+#   #+#        #+#    #+# 
+ ########  ###     ### ###       ### ##########       ########      ###     ########## ###    ###
+
+
+
+
+
+
+                """)
             exit()
         else:
             clr()
@@ -170,7 +184,7 @@ def check_game_over():
 def travel_menu():
     clr()
     print(f'{bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC} is on planet {player.location.name}')
-    print("Enter the number of the planet you would like to travel?")
+    print("Enter the number of the planet you would like to travel to.")
     for i in range(len(planet_list)):
         print(f'{i + 1}) {planet_list[i].name}  ')
 
@@ -482,7 +496,7 @@ def good_ending():
 
 def menu():
     clr()
-    print(f'What would you like to do on {player.location.name}? ')
+    print(f'What would you like to do on {bcolors.OKGREEN}{player.location.name}{bcolors.ENDC}? \n')
     print('1)Gather resources \n2)Travel \n3)View inventory \n4)Trade \n5)Quit Game')
     try:
         userInput = int(input())
@@ -493,7 +507,7 @@ def menu():
                 travel_menu()
             else:
                 clr()
-                input("You have no fuel.")
+                input("You don't even have any fuel to go anwhere!")
         elif userInput == 3:
             view_inv()
         elif userInput == 4:
@@ -510,7 +524,7 @@ def menu():
 def view_inv():
     while True:
         clr()
-        print(f'Inventory:                                              {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}\'s age: {int(player.age)}')
+        print(f'Inventory:                                              {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}\'s Age: {int(player.age)}')
         for i in range(len(inventory)):
             if inventory[i].quantity != 0:
                 print(f'{inventory[i].name} x{inventory[i].quantity}')
@@ -531,7 +545,7 @@ def Trade():
             token_ran_num = random.choice(range(1, 10))
             npc_inv[i].quantity = ran_num
             npc_inv[4].quantity = token_ran_num
-            print(f'{i + 1}) {ran_num}x {items_list[i].name} for {token_ran_num}x space tokens\n' )
+            print(f'{i + 1}) {ran_num}x {items_list[i].name} for {token_ran_num}x Space Tokens\n' )
             if i == 0:
                 npc_inv[5].quantity = token_ran_num
             elif i == 1:
@@ -706,11 +720,11 @@ if __name__ == "__main__":
                 
     player = Player(planet_list[0])
     
-    items_list = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens')]
+    items_list = [Item('Food'), Item('Minerals'), Item('Water'), Item('Fuel'), Item('Space Tokens')]
 
-    inventory = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens'), Item('Suit'), Item('Energy Collector Auger'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
+    inventory = [Item('Food'), Item('Minerals'), Item('Water'), Item('Fuel'), Item('Space Tokens'), Item('Suit'), Item('Energy Collector Auger'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
 
-    npc_inv = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens'), Item('space tokens1'), Item('space tokens2'), Item('space tokens3'), Item('space tokens4')]
+    npc_inv = [Item('Food'), Item('Minerals'), Item('Water'), Item('Fuel'), Item('Space Tokens'), Item('Space Tokens1'), Item('Space Tokens2'), Item('Space Tokens3'), Item('Space Tokens4')]
 
     sp_item_list = [Item('Suit'), Item('Energy Collector Auger'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
 
