@@ -184,27 +184,27 @@ def travel_menu():
                 player.age += 11.78/52
                 inventory[3].quantity -= 1
                 x = 1
-                #check_game_over()
+                check_game_over()
             if player.location.name == planet_list[2].name: # From Neptune
                 player.age += 668.06/52
                 inventory[3].quantity -= 67
                 x = 67
-                #check_game_over()
+                check_game_over()
             if player.location.name == planet_list[3].name: # From Jupiter 
                 player.age += 94.53/52
                 inventory[3].quantity -= 10
                 x = 10
-                #check_game_over()
+                check_game_over()
             if player.location.name == planet_list[4].name: # From Proxima Centauri
                 player.age += 423.57/52
                 inventory[3].quantity -= 42
                 x = 42
-                #check_game_over()
+                check_game_over()
             if player.location.name == planet_list[5].name: # From Proxima Centauri
                 player.age += 423.57/52
                 inventory[3].quantity -= 42
                 x = 42
-                #check_game_over()
+                check_game_over()
                 
     
     
