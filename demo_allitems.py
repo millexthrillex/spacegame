@@ -85,7 +85,7 @@ def start():
     player.name = input(f'{bcolors.BOLD}What is your Twitter handle?\n{bcolors.ENDC}')
    
     
-    story_1 = (f"{bcolors.OKBLUE}Earth is in trouble. The human civilization has slowly but surely been killing the Earth and it is estimated to die in 65 years.\nElon Musk needs your help to explore the galaxy for a special mission in order to restore the Earth's core energy.{bcolors.ENDC}")
+    story_1 = (f"{bcolors.OKBLUE}Earth is in trouble. The human civilization has slowly but surely been killing the Earth and it is estimated to die in 65 years. Elon Musk needs your help to explore the galaxy for a special mission in order to restore the Earth's core energy.{bcolors.ENDC}")
     while True:
         
         x = name_confirm = input(f'You entered {bcolors.BOLD}{bcolors.OKGREEN}{player.name}{bcolors.ENDC}. Is this correct? \nType "yes" to confirm, "no" to return. \n')  
@@ -106,7 +106,7 @@ def start():
         if choice == 'yes':
             clr()
             input(f"""{bcolors.OKGREEN}Let's save the Earth!{bcolors.ENDC}\n""")
-            input("""Your mission, should you choose to accept it, is to explore the planets within the galaxy and acquire special items needed to travel to Proxima Centauri.\nIn order to get there, you will need a super heat-resistant space suit, an advanced ship, and the warp speed ship upgrade.\nProxima Centauri has a special type of energy within. Perhaps you may also need something to collect the energy with...\n""")
+            input("""Your mission, should you choose to accept it, is to explore the planets within the galaxy and acquire special items needed to travel to Proxima Centauri.\nIn order to get there, you will need a super heat-resistant space suit, an advanced ship, and the warp speed ship upgrade. Proxima Centauri has a special type of energy within. Perhaps you may also need something to collect the energy with...\n""")
             clr()
             input("Now that you know your mission, your adventure has just begun.\nYou find yourself within Twitter headquarters on Earth. So, tell me explorer...\n")
             break
@@ -545,7 +545,7 @@ def Trade():
                 print(f'5) 50x Space Tokens for 1x Special Suit')
         if player.location == planet_list[2]:
             if inventory[6].quantity == 0:
-                print(f'5) 50x Space Tokens for 1x Energy Collector Auger')
+                print(f'5) 50x Space Tokens for 1x Energy Collection Device')
         if player.location == planet_list[3]:
             if inventory[7].quantity == 0:
                 print(f'5) 50x Space Tokens for 1x Warp Speed Upgrade')
@@ -708,19 +708,19 @@ if __name__ == "__main__":
     
     items_list = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens')]
 
-    inventory = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens'), Item('Suit'), Item('Energy Collector Auger'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
+    inventory = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens'), Item('Suit'), Item('Energy Collection device'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
 
     npc_inv = [Item('food'), Item('minerals'), Item('water'), Item('fuel'), Item('space tokens'), Item('space tokens1'), Item('space tokens2'), Item('space tokens3'), Item('space tokens4')]
 
-    sp_item_list = [Item('Suit'), Item('Energy Collector Auger'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
+    sp_item_list = [Item('Suit'), Item('Energy Collection device'), Item('Warp Speed Upgrade'), Item('Advanced Ship')]
 
-    inventory[3].quantity = 10
+    inventory[3].quantity = 1000000
     inventory[4].quantity = 0
-    inventory[5].quantity = 0
-    inventory[6].quantity = 0
-    inventory[7].quantity = 0
-    inventory[8].quantity = 0
-    start()
+    inventory[5].quantity = 1
+    inventory[6].quantity = 1
+    inventory[7].quantity = 1
+    inventory[8].quantity = 1
+    #start()
     
 
 
